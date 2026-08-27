@@ -1,0 +1,1076 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camacho Digital</title>
+<meta name="description" content="Redes sociales, Meta Ads, WhatsApp Business, CRM y app a medida — cuatro paquetes para gestionar tu negocio como un solo sistema.">
+<meta property="og:title" content="Camacho Digital — Portafolio de servicios">
+<meta property="og:description" content="Redes sociales, Meta Ads, WhatsApp Business, CRM y app a medida — cuatro paquetes para gestionar tu negocio como un solo sistema.">
+<meta name="theme-color" content="#181b22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #031926;
+    --ink-soft: #4f6a70;
+    --paper: #f9f6ee;
+    --paper-raised: #fdfbf6;
+    --line: #e2ddcd;
+    --accent: #468189;
+    --accent-ink: #ffffff;
+    --accent-2: #77aca2;
+    --accent-2-ink: #031926;
+    --accent-2-text: #3e7267;
+    --shadow: 0 1px 0 rgba(3,25,38,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f4e9cd;
+      --ink-soft: #9dbebb;
+      --paper: #031926;
+      --paper-raised: #0a2733;
+      --line: #163642;
+      --accent: #5b9aa1;
+      --accent-ink: #031926;
+      --accent-2: #77aca2;
+      --accent-2-ink: #031926;
+      --accent-2-text: #77aca2;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f4e9cd;
+    --ink-soft: #9dbebb;
+    --paper: #031926;
+    --paper-raised: #0a2733;
+    --line: #163642;
+    --accent: #5b9aa1;
+    --accent-ink: #031926;
+    --accent-2: #77aca2;
+    --accent-2-ink: #031926;
+    --accent-2-text: #77aca2;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Hero */
+  .hero {
+    padding: clamp(36px, 6vw, 64px) 0 clamp(28px, 4vw, 44px);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: clamp(28px, 5vw, 48px);
+  }
+  .mark {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+  .mark span { color: var(--accent); }
+  .hero-meta {
+    text-align: right;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
+    text-wrap: balance;
+    max-width: 15ch;
+  }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .hero-sub {
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 52ch;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Valores */
+  .valores {
+    padding: clamp(20px, 3vw, 26px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .valores .wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 700px) {
+    .valores .wrap { grid-template-columns: 1fr; gap: 18px; }
+  }
+  .valor { display: flex; flex-direction: column; gap: 4px; }
+  .valor .valor-title { font-weight: 600; font-size: 0.95rem; }
+  .valor .valor-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
+
+  /* Capacidades */
+  .capacidades {
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+  .cap-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .cap-item {
+    background: var(--paper);
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cap-item .cap-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  .cap-item .cap-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* Enfoque */
+  .enfoque {
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .enfoque-head { max-width: 60ch; margin-bottom: clamp(24px, 4vw, 32px); }
+  .enfoque-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .enfoque-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .comparativa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: clamp(28px, 4vw, 36px);
+  }
+  @media (max-width: 640px) {
+    .comparativa { grid-template-columns: 1fr; }
+  }
+  .comp-col-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .comp-col.sin .comp-col-label { color: var(--ink-soft); }
+  .comp-col.con .comp-col-label { color: var(--accent-2-text); }
+
+  .phone {
+    width: min(100%, 240px);
+    margin: 0 auto 14px;
+    background: #031926;
+    border-radius: 34px;
+    padding: 10px 8px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+  }
+  .phone-screen {
+    background: var(--paper-raised);
+    border-radius: 24px;
+    overflow: hidden;
+    padding-bottom: 8px;
+  }
+  .phone-notch {
+    width: 70px;
+    height: 16px;
+    background: #031926;
+    border-radius: 0 0 12px 12px;
+    margin: 0 auto;
+  }
+  .phone-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px 8px;
+  }
+  .phone-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  .comp-col.con .phone-avatar { background: var(--accent); }
+  .phone-uname {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.58rem;
+    color: var(--ink-soft);
+  }
+  .phone-tabs {
+    display: flex;
+    gap: 18px;
+    padding: 0 12px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .phone-tabs span {
+    width: 14px;
+    height: 2px;
+    background: var(--line);
+    align-self: center;
+  }
+  .phone-tabs span:first-child { background: var(--ink-soft); }
+
+  .feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    aspect-ratio: 1;
+  }
+  .feed-grid span { display: block; }
+
+  .comp-col.sin .feed-grid span:nth-child(1) { background: #d64550; }
+  .comp-col.sin .feed-grid span:nth-child(2) { background: #f2b134; }
+  .comp-col.sin .feed-grid span:nth-child(3) { background: #2a6f97; }
+  .comp-col.sin .feed-grid span:nth-child(4) { background: #6a4c93; }
+  .comp-col.sin .feed-grid span:nth-child(5) { background: #1b998b; }
+  .comp-col.sin .feed-grid span:nth-child(6) { background: #e56b6f; }
+  .comp-col.sin .feed-grid span:nth-child(7) { background: #f2b134; }
+  .comp-col.sin .feed-grid span:nth-child(8) { background: #2a6f97; }
+  .comp-col.sin .feed-grid span:nth-child(9) { background: #6a4c93; }
+
+  .comp-col.con .feed-grid span:nth-child(3n+1) { background: var(--accent); }
+  .comp-col.con .feed-grid span:nth-child(3n+2) { background: var(--paper-raised); border: 1px solid var(--line); }
+  .comp-col.con .feed-grid span:nth-child(3n) { background: var(--accent-2); }
+  .comp-col.con .feed-grid span:nth-child(4) { background: var(--ink); }
+  .comp-col.con .feed-grid span:nth-child(6) { background: var(--ink); }
+
+  .comp-col-caption { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.5; }
+
+  .patrones {
+    margin-bottom: clamp(28px, 4vw, 36px);
+  }
+  .patrones-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .patrones-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .patrones-row { grid-template-columns: 1fr 1fr; }
+  }
+  .patron-item { text-align: center; }
+  .patron-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    aspect-ratio: 1;
+    margin-bottom: 8px;
+  }
+  .patron-grid span { display: block; background: var(--paper-raised); border: 1px solid var(--line); }
+  .patron-name { font-size: 0.76rem; color: var(--ink-soft); }
+
+  .patron-damero span:nth-child(1),
+  .patron-damero span:nth-child(3),
+  .patron-damero span:nth-child(5),
+  .patron-damero span:nth-child(7),
+  .patron-damero span:nth-child(9) { background: var(--accent); border-color: var(--accent); }
+
+  .patron-arcoiris span:nth-child(-n+3) { background: var(--accent); border-color: var(--accent); }
+  .patron-arcoiris span:nth-child(n+4):nth-child(-n+6) { background: var(--accent-2); opacity: 0.7; border-color: transparent; }
+  .patron-arcoiris span:nth-child(n+7) { background: var(--line); border-color: var(--line); }
+
+  .patron-linea span:nth-child(-n+3) { background: var(--accent-2); border-color: var(--accent-2); }
+  .patron-linea span:nth-child(n+7) { background: var(--accent-2); border-color: var(--accent-2); }
+
+  .patron-diagonal span:nth-child(1),
+  .patron-diagonal span:nth-child(5),
+  .patron-diagonal span:nth-child(9) { background: var(--accent); border-color: var(--accent); }
+  .patron-diagonal span:nth-child(3),
+  .patron-diagonal span:nth-child(7) { background: var(--accent-2); border-color: var(--accent-2); }
+
+  .pilares {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 800px) {
+    .pilares { grid-template-columns: 1fr 1fr; }
+  }
+  .pilar .pilar-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; }
+  .pilar .pilar-sub { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* Paquetes */
+  .paquetes { padding: clamp(32px, 5vw, 48px) 0 clamp(16px, 3vw, 28px); }
+  .pk-head { margin-bottom: 28px; max-width: 60ch; }
+  .pk-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .pk-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .pk-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px) {
+    .pk-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .pk-grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+  .card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .card.flagship {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .card.flagship .tier-name,
+  .card.flagship .price,
+  .card.flagship .note { color: var(--paper); }
+  .card.flagship .item { color: var(--paper); opacity: 0.92; }
+  .card.flagship .item::before { color: var(--accent); }
+
+  .tag {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 9px;
+  }
+
+  .tier-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .card.flagship .tier-num { color: var(--accent-2); }
+  .tier-name {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    margin: 2px 0 0;
+  }
+  .price {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .price .per { font-size: 0.68rem; color: var(--ink-soft); font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+  .item {
+    font-size: 0.86rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    padding-left: 16px;
+    position: relative;
+  }
+  .item::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .item.sub { color: var(--ink-soft); opacity: 0.85; font-size: 0.82rem; }
+
+  .note {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    line-height: 1.5;
+  }
+  .card.flagship .note { border-top-color: rgba(241,242,236,0.2); opacity: 0.75; }
+
+  .gift-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-2-text);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .gift-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .gift-list li {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--accent-2-text);
+    padding-left: 14px;
+    position: relative;
+  }
+  .gift-list li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+  .card.flagship .gift-label,
+  .card.flagship .gift-list li { color: var(--accent-2); }
+
+  /* Servicios a la carta */
+  .alacarte {
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-top: 1px solid var(--line);
+  }
+  .alacarte-head { max-width: 60ch; margin-bottom: 22px; }
+  .alacarte-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .alacarte-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+  .alacarte-list { border-top: 1px solid var(--line); }
+  .alacarte-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .alacarte-row .name { font-size: 0.95rem; font-weight: 500; }
+  .alacarte-row .price-tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.88rem;
+    color: var(--accent-2-text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .alacarte-note {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-top: 1px solid var(--line);
+  }
+  .faq h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 22px;
+    letter-spacing: -0.01em;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+    font-size: 0.98rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+";
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.1rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .faq-item p {
+    margin: 0 0 20px;
+    max-width: 62ch;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* Condiciones */
+  .condiciones {
+    padding: clamp(20px, 3vw, 26px) 0;
+    border-top: 1px solid var(--line);
+  }
+  .condiciones-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .condiciones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 800px) {
+    .condiciones-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  }
+  @media (max-width: 460px) {
+    .condiciones-grid { grid-template-columns: 1fr; gap: 14px; }
+  }
+  .cond-item .cond-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .cond-item .cond-sub {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* Proceso */
+  .proceso {
+    padding: clamp(32px, 5vw, 48px) 0;
+    border-top: 1px solid var(--line);
+    margin-top: clamp(32px, 5vw, 48px);
+  }
+  .proceso h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 22px;
+    letter-spacing: -0.01em;
+  }
+  .proceso-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .proceso-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .paso .paso-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .paso .paso-title { font-weight: 600; margin: 6px 0 4px; }
+  .paso .paso-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
+
+  /* Footer CTA */
+  .cta {
+    margin-top: clamp(36px, 5vw, 56px);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .cta .wrap { padding: clamp(44px, 8vw, 76px) clamp(20px, 5vw, 56px); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .cta h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    margin: 0;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 15px 20px;
+    min-height: 44px;
+    border: 1px solid var(--accent);
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-secondary { background: transparent; color: var(--paper); }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="mark">Camacho<span>·</span>Digital</div>
+      <div class="hero-meta">Portafolio de servicios<br>2026 · Colombia</div>
+    </div>
+    <div class="eyebrow">Marketing digital &amp; automatización</div>
+    <h1>Tu negocio, gestionado como <em>un solo sistema.</em></h1>
+    <p class="hero-sub">Redes sociales, pauta en Meta, WhatsApp Business, CRM y software a medida — reunidos en cuatro paquetes pensados para crecer con tu negocio, no en contra de tu presupuesto.</p>
+  </div>
+</header>
+
+<section class="valores">
+  <div class="wrap">
+    <div class="valor">
+      <div class="valor-title">Trato directo, sin intermediarios</div>
+      <div class="valor-sub">Hablas conmigo desde el diagnóstico hasta el reporte mensual — no con una cuenta rotativa.</div>
+    </div>
+    <div class="valor">
+      <div class="valor-title">Paquetes que escalan contigo</div>
+      <div class="valor-sub">Empiezas en el nivel que tu negocio necesita hoy y subes de paquete cuando el crecimiento lo pida.</div>
+    </div>
+    <div class="valor">
+      <div class="valor-title">Un solo equipo, un solo sistema</div>
+      <div class="valor-sub">Contenido, pauta, WhatsApp y CRM trabajando coordinados — no como servicios sueltos.</div>
+    </div>
+  </div>
+</section>
+
+<section class="capacidades">
+  <div class="wrap">
+    <div class="cap-head">
+      <h2>Qué hay detrás de cada paquete</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-item"><span class="cap-num">01</span><span class="cap-label">Manejo de Meta Ads</span></div>
+      <div class="cap-item"><span class="cap-num">02</span><span class="cap-label">Creación de pautas según objetivo</span></div>
+      <div class="cap-item"><span class="cap-num">03</span><span class="cap-label">Estudio de mercado y competencia</span></div>
+      <div class="cap-item"><span class="cap-num">04</span><span class="cap-label">Manejo de WhatsApp Business</span></div>
+      <div class="cap-item"><span class="cap-num">05</span><span class="cap-label">Creación de contenido y edición</span></div>
+      <div class="cap-item"><span class="cap-num">06</span><span class="cap-label">Estrategia para redes sociales</span></div>
+      <div class="cap-item"><span class="cap-num">07</span><span class="cap-label">Creación y automatización de CRM</span></div>
+      <div class="cap-item"><span class="cap-num">08</span><span class="cap-label">App a medida para tu negocio</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="enfoque">
+  <div class="wrap">
+    <div class="enfoque-head">
+      <div class="eyebrow">Nuestro enfoque</div>
+      <h2>Así pensamos tu feed antes de publicar una sola pieza</h2>
+      <p>La diferencia no está en producir más contenido — está en que cada pieza responda a un plan. Esto es lo que cambia cuando entramos a manejar tus redes.</p>
+    </div>
+
+    <div class="comparativa">
+      <div class="comp-col sin">
+        <span class="comp-col-label">Sin estrategia</span>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              <span class="phone-avatar"></span>
+              <span class="phone-uname">tu_negocio</span>
+            </div>
+            <div class="phone-tabs"><span></span><span></span><span></span></div>
+            <div class="feed-grid">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <p class="comp-col-caption">Colores que no dialogan entre sí, publicaciones sueltas, sin línea editorial ni calendario detrás.</p>
+      </div>
+      <div class="comp-col con">
+        <span class="comp-col-label">Con estrategia</span>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              <span class="phone-avatar"></span>
+              <span class="phone-uname">tu_negocio</span>
+            </div>
+            <div class="phone-tabs"><span></span><span></span><span></span></div>
+            <div class="feed-grid">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <p class="comp-col-caption">Paleta definida, patrón de feed pensado, cada pieza responde a un calendario y a un objetivo.</p>
+      </div>
+    </div>
+
+    <div class="patrones">
+      <span class="patrones-label">Patrones de feed que aplicamos</span>
+      <div class="patrones-row">
+        <div class="patron-item">
+          <div class="patron-grid patron-damero">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="patron-name">Damero</div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-grid patron-arcoiris">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="patron-name">Arcoíris</div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-grid patron-linea">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="patron-name">Línea por línea</div>
+        </div>
+        <div class="patron-item">
+          <div class="patron-grid patron-diagonal">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="patron-name">Diagonal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-title">Consistencia visual</div>
+        <div class="pilar-sub">Una paleta y un estilo que se reconocen a simple vista, publicación tras publicación.</div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-title">Planeación editorial</div>
+        <div class="pilar-sub">Nada se sube al día — el calendario mensual define qué, cuándo y para qué.</div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-title">Identidad de marca</div>
+        <div class="pilar-sub">Cada pieza refuerza cómo quieres que te recuerden, no solo cómo se ve bonito.</div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-title">Contenido que convierte</div>
+        <div class="pilar-sub">Publicar por publicar no vende. Cada formato tiene un propósito dentro del embudo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paquetes">
+  <div class="wrap">
+    <div class="pk-head">
+      <div class="eyebrow">Paquetes</div>
+      <h2>Cuatro niveles, un mismo equipo</h2>
+      <p>Cada paquete incluye lo anterior y suma alcance. Empiezas donde tu negocio está hoy y subes de nivel cuando estés listo.</p>
+    </div>
+
+    <div class="pk-grid">
+      <div class="card">
+        <div>
+          <div class="tier-num">01 · Arranque</div>
+          <div class="tier-name">Contenido base</div>
+        </div>
+        <div class="price">$600.000<span class="per">COP / mes</span></div>
+        <ul class="items">
+          <li class="item">2 reels editados</li>
+          <li class="item">2 carruseles</li>
+          <li class="item">4 historias</li>
+          <li class="item">Calendario de contenido mensual</li>
+          <li class="item">Gestión de pauta digital</li>
+          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
+          <li class="item sub">Entregamos el material — tú publicas</li>
+        </ul>
+        <div>
+          <span class="gift-label">Regalos incluidos</span>
+          <ul class="gift-list">
+            <li>Auditoría gratis de tus redes actuales</li>
+            <li>Plantilla de calendario de contenido editable</li>
+            <li>1 historia de bienvenida gratis</li>
+          </ul>
+        </div>
+        <div class="note">Ideal para negocios que están empezando en redes.</div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tier-num">02 · Crecimiento</div>
+          <div class="tier-name">Contenido + presencia</div>
+        </div>
+        <div class="price">$1.300.000<span class="per">COP / mes</span></div>
+        <ul class="items">
+          <li class="item">4 reels · 4 carruseles · 6 historias</li>
+          <li class="item">Calendario mensual</li>
+          <li class="item sub">Nosotros programamos y publicamos</li>
+          <li class="item">Manejo de WhatsApp Business</li>
+          <li class="item">Propuesta de estrategia para redes</li>
+          <li class="item">Gestión de pauta digital</li>
+          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
+        </ul>
+        <div>
+          <span class="gift-label">Regalos incluidos</span>
+          <ul class="gift-list">
+            <li>1 pieza extra de contenido el primer mes</li>
+            <li>Optimización gratis del perfil de WhatsApp/Instagram</li>
+            <li>Mini sesión de fotos con celular</li>
+          </ul>
+        </div>
+        <div class="note">Para marcas que quieren constancia sin operarla ellas mismas.</div>
+      </div>
+
+      <div class="card featured">
+        <span class="tag">Más elegido</span>
+        <div>
+          <div class="tier-num">03 · Integral</div>
+          <div class="tier-name">Redes, pauta y CRM</div>
+        </div>
+        <div class="price">$2.300.000<span class="per">COP / mes</span></div>
+        <ul class="items">
+          <li class="item">6 reels · 6 carruseles · 12 historias</li>
+          <li class="item">Calendario mensual + edición completa</li>
+          <li class="item">Informe estadístico + feedback</li>
+          <li class="item">WhatsApp Business + estrategia</li>
+          <li class="item">Meta Ads + pautas por objetivo</li>
+          <li class="item sub">Presupuesto de pauta incluido en el precio</li>
+          <li class="item">Estudio de mercado y competencia</li>
+          <li class="item">Creación de CRM</li>
+        </ul>
+        <div>
+          <span class="gift-label">Regalos incluidos</span>
+          <ul class="gift-list">
+            <li>Sesión de estrategia trimestral gratis</li>
+            <li>Informe de competencia gratis el primer mes</li>
+            <li>Presupuesto de prueba de pauta sin cobro de gestión el primer mes</li>
+          </ul>
+        </div>
+        <div class="note">Pagas un solo valor — yo administro y escalo la inversión en pauta. Solo te entrego resultados.</div>
+      </div>
+
+      <div class="card flagship">
+        <div>
+          <div class="tier-num">04 · Transformación</div>
+          <div class="tier-name">Integral + software</div>
+        </div>
+        <div class="price">Desde $4.000.000<span class="per">COP</span></div>
+        <ul class="items">
+          <li class="item">Todo el paquete Integral</li>
+          <li class="item sub">Incluye el CRM ya creado</li>
+          <li class="item">Automatización del CRM</li>
+          <li class="item">App a medida: clientes, inventario, facturas y pedidos</li>
+          <li class="item">Disponible en celular y computador</li>
+        </ul>
+        <div>
+          <span class="gift-label">Regalos incluidos</span>
+          <ul class="gift-list">
+            <li>1 mes de soporte técnico post-lanzamiento</li>
+            <li>Capacitación al equipo para usar la app y el CRM</li>
+            <li>Migración de datos existentes sin costo</li>
+          </ul>
+        </div>
+        <div class="note">Alcance de la app se define por cotización — funcionalidades a la medida del negocio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alacarte">
+  <div class="wrap">
+    <div class="alacarte-head">
+      <div class="eyebrow">Servicios a la carta</div>
+      <h2>¿No necesitas un paquete completo?</h2>
+      <p>Estos mismos servicios también se contratan sueltos, por proyecto o por mes.</p>
+    </div>
+    <div class="alacarte-list">
+      <div class="alacarte-row"><span class="name">Estudio de mercado y competencia (informe único)</span><span class="price-tag">Desde $30.000</span></div>
+      <div class="alacarte-row"><span class="name">Propuesta de estrategia para redes sociales</span><span class="price-tag">Desde $150.000</span></div>
+      <div class="alacarte-row"><span class="name">Gestión de Meta Ads (mensual, pauta aparte)</span><span class="price-tag">Desde $300.000 /mes</span></div>
+      <div class="alacarte-row"><span class="name">Creación de pautas por objetivo (campaña puntual)</span><span class="price-tag">Desde $300.000</span></div>
+      <div class="alacarte-row"><span class="name">Configuración de WhatsApp Business</span><span class="price-tag">Desde $100.000</span></div>
+      <div class="alacarte-row"><span class="name">Contenido suelto — 1 reel + 1 carrusel + 2 historias</span><span class="price-tag">Desde $180.000</span></div>
+      <div class="alacarte-row"><span class="name">Creación de CRM</span><span class="price-tag">Desde $300.000</span></div>
+      <div class="alacarte-row"><span class="name">Automatización de un CRM existente</span><span class="price-tag">Desde $600.000</span></div>
+    </div>
+    <p class="alacarte-note">Precios en COP, sujetos al alcance real de cada caso. Si terminas contratando 2 o más servicios de forma recurrente, sale más económico pasarte a un paquete.</p>
+  </div>
+</section>
+
+<section class="proceso">
+  <div class="wrap">
+    <div class="eyebrow">Cómo trabajamos</div>
+    <h2>De la primera llamada al primer reporte</h2>
+    <div class="proceso-grid">
+      <div class="paso">
+        <div class="paso-num">01</div>
+        <div class="paso-title">Diagnóstico</div>
+        <div class="paso-sub">Revisamos tu negocio, tu competencia y el estado actual de tus redes.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">02</div>
+        <div class="paso-title">Propuesta</div>
+        <div class="paso-sub">Elegimos juntos el paquete y ajustamos el alcance a tu presupuesto.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">03</div>
+        <div class="paso-title">Ejecución</div>
+        <div class="paso-sub">Producimos, publicamos y gestionamos la pauta según lo acordado.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">04</div>
+        <div class="paso-title">Reporte</div>
+        <div class="paso-sub">Entregamos resultados cada mes y ajustamos la estrategia con datos reales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="eyebrow">Antes de escribir</div>
+    <h2>Preguntas frecuentes</h2>
+
+    <details class="faq-item">
+      <summary>¿Hay permanencia mínima?</summary>
+      <p>Sí, mínimo 3 meses. Es el tiempo que toma que el contenido y la pauta empiecen a mostrar resultados reales — antes de eso las métricas no son representativas.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Quién paga la pauta publicitaria (Meta Ads)?</summary>
+      <p>En Arranque y Crecimiento, tú defines y pagas directamente tu presupuesto de pauta; yo la gestiono. En Integral y Transformación, la inversión en pauta ya está incluida en el precio — yo la administro y la escalo por mi cuenta, y solo te entrego resultados.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa si no me gusta una pieza de contenido?</summary>
+      <p>Revisas y apruebas cada pieza antes de publicarla. Si algo no encaja con tu marca, la ajustamos sin costo adicional dentro del alcance del mes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo es la forma de pago?</summary>
+      <p>50% de anticipo al iniciar el mes y 50% contra entrega de resultados. Acepto Nequi/Daviplata, transferencia bancaria y PSE.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Puedo cambiar de paquete más adelante?</summary>
+      <p>Sí. Puedes subir de nivel cuando lo necesites — el cambio aplica desde el siguiente mes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Necesito tener ya redes sociales o WhatsApp Business creados?</summary>
+      <p>No es necesario. Si no los tienes, los creamos y configuramos como parte del arranque.</p>
+    </details>
+  </div>
+</section>
+
+<section class="condiciones">
+  <div class="wrap">
+    <span class="condiciones-label">Condiciones de servicio</span>
+    <div class="condiciones-grid">
+      <div class="cond-item">
+        <div class="cond-title">Permanencia</div>
+        <div class="cond-sub">Mínimo 3 meses por paquete.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Forma de pago</div>
+        <div class="cond-sub">50% anticipo al iniciar el mes, 50% contra entrega de resultados.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Métodos aceptados</div>
+        <div class="cond-sub">Nequi/Daviplata, transferencia bancaria, PSE.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Tiempos de entrega</div>
+        <div class="cond-sub">Calendario de contenido: primeros 5 días hábiles del mes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="wrap">
+    <div>
+      <h3>Cada paquete es un punto de partida, no una caja cerrada.</h3>
+    </div>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Escríbeme al WhatsApp
+      </a>
+      <a class="btn btn-secondary" href="mailto:camachonavarrc@gmail.com?subject=Quiero%20un%20paquete">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+        O al correo
+      </a>
+    </div>
+  </div>
+</footer>
