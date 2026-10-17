@@ -579,87 +579,8 @@
   .card-start strong { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
   .card.flagship .card-start, .card.flagship .card-start strong { color: var(--on-deep); }
 
-  /* Tabla comparativa */
-  .comparar {
-    padding: clamp(32px, 5vw, 48px) 0;
-    border-top: 1px solid var(--line);
-  }
-  .comparar-head { max-width: 60ch; margin-bottom: 22px; }
-  .comparar-head h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 12px;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .comparar-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
-  .tabla-hint { display: none; margin: 0 0 8px; font-size: 0.82rem; color: var(--ink-soft); }
-  @media (max-width: 900px) { .tabla-hint { display: block; } }
-  .tabla-wrap {
-    position: relative;
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    background: var(--paper-raised);
-  }
-  .tabla-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .tabla {
-    width: 100%;
-    min-width: 720px;
-    border-collapse: separate;
-    border-spacing: 0;
-    font-size: 0.88rem;
-  }
-  .tabla th, .tabla td {
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--line);
-    text-align: center;
-    vertical-align: middle;
-    line-height: 1.35;
-  }
-  .tabla tbody th[scope="row"] {
-    text-align: left;
-    font-weight: 500;
-    position: sticky;
-    left: 0;
-    z-index: 1;
-    background: var(--paper-raised);
-    min-width: 170px;
-    border-right: 1px solid var(--line);
-  }
-  .tabla thead th { vertical-align: bottom; padding-top: 16px; padding-bottom: 14px; font-weight: 400; }
-  .tabla thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--paper-raised); border-right: 1px solid var(--line); }
-  .tabla .t-name { display: block; font-family: "Fraunces", serif; font-weight: 500; font-size: 1.05rem; }
-  .tabla td small { display: block; font-family: "Work Sans", sans-serif; font-weight: 400; font-size: 0.76rem; color: var(--ink-soft); margin-top: 2px; }
-  .tabla tr.grupo th {
-    text-align: left;
-    background: var(--paper);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    padding: 9px 14px;
-    position: sticky;
-    left: 0;
-  }
-  .tabla .feat { background: var(--accent-tint); }
-  .tabla thead th.feat { border-top: 3px solid var(--accent); }
-  .tabla .t-tag { display: block; margin-bottom: 4px; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); }
-  .tabla .yes { display: inline-block; width: 6px; height: 12px; border: solid var(--accent); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg) translate(-1px, -2px); }
-  .tabla .no { color: var(--ink-soft); }
-  .tabla tbody tr:last-child th, .tabla tbody tr:last-child td { border-bottom: 0; }
-  .tabla .fila-cta td, .tabla .fila-cta th { padding-top: 16px; padding-bottom: 16px; }
-  .tabla .fila-cta .btn { width: 100%; justify-content: center; font-size: 0.78rem; letter-spacing: 0; padding: 12px 8px; }
+  /* Texto solo para lectores de pantalla */
   .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  .comparar-note { margin: 16px 0 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; }
-  .pk-head a { color: var(--accent); }
-  @media (max-width: 560px) {
-    .tabla { min-width: 620px; font-size: 0.84rem; }
-    .tabla tbody th[scope="row"], .tabla thead th:first-child { width: 124px; min-width: 124px; max-width: 124px; }
-    .tabla th, .tabla td { padding: 10px 8px; }
-  }
 
   /* FAQ */
   .faq {
@@ -989,7 +910,7 @@
     <div class="pk-head">
       <div class="eyebrow">Paquetes</div>
       <h2>Cuatro niveles, un mismo equipo</h2>
-      <p>Cada nivel suma más contenido y más servicios que el anterior. Empiezas donde tu negocio está hoy y subes de nivel cuando estés listo. ¿Prefieres verlos lado a lado? <a href="#comparar">Mira la tabla comparativa</a>.</p>
+      <p>Cada nivel suma más contenido y más servicios que el anterior. Empiezas donde tu negocio está hoy y subes de nivel cuando estés listo.</p>
       <p class="pauta-aviso"><strong>Importante:</strong> el presupuesto de pauta lo paga siempre el cliente, directamente a Meta. Los paquetes incluyen la gestión, no la inversión.</p>
     </div>
 
@@ -1111,50 +1032,6 @@
   </div>
 </section>
 
-<section class="comparar" id="comparar">
-  <div class="wrap">
-    <div class="comparar-head">
-      <div class="eyebrow">Comparativa</div>
-      <h2>Los cuatro paquetes, lado a lado</h2>
-      <p>Aquí ves qué incluye cada paquete. Los precios están en las tarjetas de arriba.</p>
-    </div>
-    <p class="tabla-hint">Desliza la tabla para ver todos los paquetes →</p>
-    <div class="tabla-wrap" role="region" aria-label="Comparativa de los cuatro paquetes" tabindex="0">
-      <table class="tabla">
-        <thead>
-          <tr>
-            <th scope="col"><span class="sr">Qué incluye</span></th>
-            <th scope="col"><span class="t-name">Arranque</span></th>
-            <th scope="col"><span class="t-name">Crecimiento</span></th>
-            <th scope="col" class="feat"><span class="t-tag">Más elegido</span><span class="t-name">Integral</span></th>
-            <th scope="col"><span class="t-name">Transformación</span></th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr class="grupo"><th colspan="5" scope="colgroup">Contenido cada mes</th></tr>
-        <tr><th scope="row">Reels editados</th><td>2</td><td>4</td><td class="feat">6</td><td>6</td></tr>
-        <tr><th scope="row">Carruseles</th><td>2</td><td>4</td><td class="feat">6</td><td>6</td></tr>
-        <tr><th scope="row">Historias</th><td>4</td><td>6</td><td class="feat">12</td><td>12</td></tr>
-        <tr><th scope="row">Calendario de contenido mensual</th><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">Sesión mensual de ideas de contenido</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">Manejo y publicación de tus redes</th><td>Tú publicas<small>te entregamos el material</small></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">Propuesta de estrategia para redes</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">Informe estadístico y feedback</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr class="grupo"><th colspan="5" scope="colgroup">Publicidad en Meta Ads</th></tr>
-        <tr><th scope="row">Gestión de pauta digital</th><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td></tr>
-        <tr><th scope="row">Presupuesto de pauta</th><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td class="feat">Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td></tr>
-        <tr class="grupo"><th colspan="5" scope="colgroup">Complementos</th></tr>
-        <tr><th scope="row">Manejo de WhatsApp Business</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">Creación de CRM</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>ya incluido en el Integral</small></td></tr>
-        <tr><th scope="row">Automatización del CRM</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr><th scope="row">App a medida, en celular y computador</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr class="fila-cta"><th scope="row">Elige tu paquete</th><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Arranque" data-goatcounter-click="cta-tabla-arranque" data-goatcounter-title="Tabla: Arranque">Elegir</a></td><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Crecimiento" data-goatcounter-click="cta-tabla-crecimiento" data-goatcounter-title="Tabla: Crecimiento">Elegir</a></td><td class="feat"><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Integral" data-goatcounter-click="cta-tabla-integral" data-goatcounter-title="Tabla: Integral">Elegir</a></td><td><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Transformación" data-goatcounter-click="cta-tabla-transformacion" data-goatcounter-title="Tabla: Transformación">Elegir</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="comparar-note">Cada paquete incluye además regalos, que ves en su tarjeta. Los paquetes mensuales tienen permanencia mínima de 3 meses.</p>
-  </div>
-</section>
 
 <section class="diagnostico" id="diagnostico">
   <div class="wrap">
@@ -1588,7 +1465,7 @@
       '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.ruta-note',
       '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
       '.mapa-head', '.nodo', '.semanas-head', '.semana', '.semanas-loop', '.semanal', '.resultado-head', '.tile', '.resultado-note',
-      '.pk-head', '.card', '.comparar-head', '.tabla-wrap',
+      '.pk-head', '.card',
       '.proceso .eyebrow', '.proceso h2', '.paso', '.faq .eyebrow', '.faq h2', '.cta .wrap > *'
     ].join(',');
 
@@ -1680,6 +1557,8 @@
       counters.push(el);
     });
     var run = function (el) {
+      if (el.__done) return;
+      el.__done = true;
       var c = el.__count, start = null, dur = 900;
       var step = function (t) {
         if (start === null) start = t;
@@ -1695,8 +1574,26 @@
         cio.unobserve(e.target);
         setTimeout(function () { run(e.target); }, 180);
       });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.01 });
     counters.forEach(function (el) { cio.observe(el); });
+
+    // Seguro: si alguien se desplaza muy rápido o salta por un enlace y un precio queda atrás sin contar,
+    // se muestra su valor final de inmediato. Nunca debe quedar un "$0" visible.
+    var settle = function () {
+      counters.forEach(function (el) {
+        if (el.__done) return;
+        if (el.getBoundingClientRect().bottom < 0) {
+          el.__done = true;
+          el.__count.live.textContent = el.querySelector('.ghost').textContent;
+        }
+      });
+    };
+    var settling = false;
+    window.addEventListener('scroll', function () {
+      if (settling) return;
+      settling = true;
+      requestAnimationFrame(function () { settling = false; settle(); });
+    }, { passive: true });
 
     // El paquete más elegido da un solo pulso al aparecer.
     var feat = document.querySelector('.card.featured');
