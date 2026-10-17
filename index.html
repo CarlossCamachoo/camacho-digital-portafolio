@@ -111,44 +111,114 @@
   .valor .valor-title { font-weight: 600; font-size: 0.95rem; }
   .valor .valor-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
 
-  /* Capacidades */
-  .capacidades {
-    padding: clamp(32px, 5vw, 48px) 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .cap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
-  .cap-head h2 {
+  /* Íconos */
+  .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* Mapa del trabajo */
+  .mapa, .semanas, .resultado { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
+  .mapa-head, .semanas-head, .resultado-head { max-width: 60ch; margin-bottom: 20px; }
+  .mapa-head h2, .semanas-head h2, .resultado-head h2 {
     font-family: "Fraunces", serif;
     font-weight: 500;
     font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 0;
+    margin: 10px 0 12px;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
-  .cap-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
+  .mapa-head p, .semanas-head p, .resultado-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+  .mapa-head .mapa-leyenda { margin-top: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.04em; }
+  .mapa-filtro { display: flex; gap: 8px; margin: 0 0 24px; overflow-x: auto; scrollbar-width: none; }
+  .mapa-filtro::-webkit-scrollbar { display: none; }
+  .mapa-filtro[hidden] { display: none; }
+  .chip {
+    flex: 0 0 auto; min-height: 44px; padding: 0 16px;
+    border: 1px solid var(--line); background: var(--paper-raised); color: var(--ink);
+    font: 500 0.86rem "Work Sans", sans-serif; cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms var(--ease-out);
   }
-  .cap-item {
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  .chip:active { transform: scale(0.97); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper-raised); border-color: var(--ink); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .mapa-ruta { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 14px; }
+  .mapa-ruta::before { content: ""; position: absolute; top: 20px; bottom: 20px; left: 37px; width: 2px; background: var(--line); }
+  .nodo {
+    position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; align-items: start;
+    padding: 14px; background: var(--paper-raised); border: 1px solid var(--line);
+    transition: opacity 220ms var(--ease-out);
   }
-  .cap-item .cap-num {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    color: var(--ink-soft);
+  .nodo.sec { background: var(--paper); border-style: dashed; }
+  .nodo-ico {
+    grid-row: span 2; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--accent-tint); border: 2px solid var(--accent); color: var(--accent); position: relative; z-index: 1;
   }
-  .cap-item small { font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); }
-  .cap-item.sec { background: var(--paper); }
-  .cap-item .cap-label {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.35;
+  .nodo.sec .nodo-ico { border-style: dashed; }
+  .nodo h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.08rem; margin: 0; letter-spacing: -0.01em; }
+  .nodo p { margin: 2px 0 0; font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft); }
+  .nodo-tag { display: inline-block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); }
+  .pks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; gap: 4px; grid-column: 2; }
+  .pks li {
+    width: 26px; height: 26px; display: grid; place-items: center;
+    font: 600 0.68rem "IBM Plex Mono", monospace; border: 1px solid var(--line); color: var(--ink-soft);
   }
+  .pks li.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .mapa-ruta[data-pk="a"] .nodo:not([data-in~="a"]),
+  .mapa-ruta[data-pk="c"] .nodo:not([data-in~="c"]),
+  .mapa-ruta[data-pk="i"] .nodo:not([data-in~="i"]),
+  .mapa-ruta[data-pk="t"] .nodo:not([data-in~="t"]) { opacity: 0.38; }
+  @media (min-width: 760px) {
+    .mapa-ruta { grid-template-columns: 1fr 1fr; column-gap: 72px; align-items: start; }
+    .mapa-ruta::before { left: 50%; transform: translateX(-1px); }
+    .nodo:nth-child(even) { margin-top: 44px; }
+    .nodo::before { content: ""; position: absolute; top: 35px; width: 36px; height: 2px; background: var(--line); }
+    .nodo::after { content: ""; position: absolute; top: 29px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); z-index: 2; }
+    .nodo:nth-child(odd)::before { right: -36px; }
+    .nodo:nth-child(even)::before { left: -36px; }
+    .nodo:nth-child(odd)::after { right: -43px; }
+    .nodo:nth-child(even)::after { left: -43px; }
+  }
+
+  /* Semana a semana */
+  .semanas-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 899px) { .semanas-grid { grid-template-columns: 1fr 1fr; } }
+  .semanas-hint { display: none; margin: 0 0 8px; font-size: 0.82rem; color: var(--ink-soft); }
+  @media (max-width: 560px) {
+    .semanas-hint { display: block; }
+    .semanas-grid {
+      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      margin-right: -20px; padding-right: 20px; padding-bottom: 4px; scrollbar-width: none;
+    }
+    .semanas-grid::-webkit-scrollbar { display: none; }
+    .semanas-grid:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .semana { flex: 0 0 78%; scroll-snap-align: start; }
+  }
+  .semana { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px 16px; background: var(--paper-raised); border: 1px solid var(--line); }
+  .semana-num { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .semana h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; }
+  .semana ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .semana li { position: relative; padding-left: 16px; font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft); }
+  .semana li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  @media (min-width: 900px) {
+    .semana:not(:last-child)::after { content: "›"; position: absolute; top: 14px; right: -14px; width: 14px; text-align: center; font-family: "Fraunces", serif; font-size: 1.5rem; line-height: 1; color: var(--accent); }
+  }
+  .semanas-loop { display: flex; align-items: center; gap: 10px; margin: 18px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .semanas-loop .ico { color: var(--accent); }
+  .semanal { margin-top: 28px; }
+  .semanal h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.25rem; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--accent-tint); border: 1px solid var(--line); font-size: 0.88rem; color: var(--ink); }
+  @media (max-width: 560px) { .chips li { padding: 8px 12px; font-size: 0.84rem; } }
+  .chips li::before { content: ""; width: 6px; height: 10px; border: solid var(--accent); border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px); flex-shrink: 0; }
+
+  /* Lo que te queda */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 760px) { .tiles { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 340px) { .tiles { grid-template-columns: 1fr; } }
+  .tile { display: flex; flex-direction: column; gap: 10px; padding: 20px 18px; background: var(--paper-raised); border: 1px solid var(--line); }
+  .tile-ico { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-tint); color: var(--accent); }
+  .tile h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.1rem; margin: 0; letter-spacing: -0.01em; }
+  .tile p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); }
+  @media (max-width: 560px) { .tile { padding: 16px 14px; } .tile p { font-size: 0.86rem; } }
+  .resultado-note { margin: 18px 0 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
 
   /* Enfoque */
   .enfoque {
@@ -862,6 +932,23 @@
 </style>
 
 <div class="progress" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m10 8 6 4-6 4z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17v-6M13 17V7M18 17v-9"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.4 1 2.3h6c0-.9.3-1.7 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-userplus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3 7.2 17.9l.9-5.4-3.9-3.8 5.4-.8z"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+</svg>
 
 <header class="hero">
   <div class="wrap">
@@ -958,19 +1045,105 @@
   </div>
 </section>
 
-<section class="capacidades">
+<section class="mapa" id="mapa">
   <div class="wrap">
-    <div class="cap-head">
+    <div class="mapa-head">
+      <div class="eyebrow">El mapa del trabajo</div>
       <h2>Qué hay detrás de cada paquete</h2>
+      <p>De la idea al cliente, en nueve paradas. Elige un paquete y mira por cuáles pasamos.</p>
+      <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
     </div>
-    <div class="cap-grid">
-      <div class="cap-item"><span class="cap-num">01</span><span class="cap-label">Creación de contenido y edición</span></div>
-      <div class="cap-item"><span class="cap-num">02</span><span class="cap-label">Estrategia para redes sociales</span></div>
-      <div class="cap-item"><span class="cap-num">03</span><span class="cap-label">Manejo de Meta Ads</span></div>
-      <div class="cap-item"><span class="cap-num">04</span><span class="cap-label">Creación de pautas según objetivo</span></div>
-      <div class="cap-item"><span class="cap-num">05</span><span class="cap-label">Manejo de WhatsApp Business</span></div>
-      <div class="cap-item sec"><span class="cap-num">06</span><span class="cap-label">CRM y automatizaciones</span><small>Complemento</small></div>
-      <div class="cap-item sec"><span class="cap-num">07</span><span class="cap-label">App a medida para tu negocio</span><small>Complemento</small></div>
+    <div class="mapa-filtro" role="group" aria-label="Ver el mapa según el paquete" hidden>
+      <button type="button" class="chip" aria-pressed="true" data-pk="todos" data-goatcounter-click="mapa-filtro-todos" data-goatcounter-title="Mapa: Todos">Todos</button>
+      <button type="button" class="chip" aria-pressed="false" data-pk="a" data-goatcounter-click="mapa-filtro-arranque" data-goatcounter-title="Mapa: Arranque">Arranque</button>
+      <button type="button" class="chip" aria-pressed="false" data-pk="c" data-goatcounter-click="mapa-filtro-crecimiento" data-goatcounter-title="Mapa: Crecimiento">Crecimiento</button>
+      <button type="button" class="chip" aria-pressed="false" data-pk="i" data-goatcounter-click="mapa-filtro-integral" data-goatcounter-title="Mapa: Integral">Integral</button>
+      <button type="button" class="chip" aria-pressed="false" data-pk="t" data-goatcounter-click="mapa-filtro-transformación" data-goatcounter-title="Mapa: Transformación">Transformación</button>
+    </div>
+    <p class="sr" id="mapa-estado" aria-live="polite"></p>
+    <ol class="mapa-ruta" data-pk="todos">
+      <li class="nodo" data-in="c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg></span>
+        <div class="nodo-txt"><h3>Estrategia</h3><p>Qué decir, a quién y por qué.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+        <div class="nodo-txt"><h3>Calendario</h3><p>Un plan de contenido para todo el mes.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-film"/></svg></span>
+        <div class="nodo-txt"><h3>Contenido</h3><p>Reels, carruseles e historias editados.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
+        <div class="nodo-txt"><h3>Publicación</h3><p>Programamos y publicamos por ti.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
+        <div class="nodo-txt"><h3>Publicidad en Meta</h3><p>Campañas por objetivo, con tu presupuesto.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <div class="nodo-txt"><h3>WhatsApp Business</h3><p>Tu canal listo para atender a quien llega.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg></span>
+        <div class="nodo-txt"><h3>Medición</h3><p>Informe y feedback de lo que funciona.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Integral, Transformación.</span>
+      </li>
+      <li class="nodo sec" data-in="i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <div class="nodo-txt"><h3>CRM</h3><p>Tus clientes en un solo lugar.</p><span class="nodo-tag">Complemento</span></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Integral, Transformación.</span>
+      </li>
+      <li class="nodo sec" data-in="t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <div class="nodo-txt"><h3>App a medida</h3><p>Tu negocio en el celular y el computador.</p><span class="nodo-tag">Complemento</span></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Transformación.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="semanas" id="semanas">
+  <div class="wrap">
+    <div class="semanas-head">
+      <div class="eyebrow">Semana a semana</div>
+      <h2>Así mejora tu contenido cada mes</h2>
+      <p>Un ciclo corto que se repite: planear, crear, publicar y medir. Lo que aprendemos en una semana alimenta la siguiente.</p>
+    </div>
+    <p class="semanas-hint">Desliza para ver las cuatro semanas →</p>
+    <ol class="semanas-grid" tabindex="0" aria-label="Las cuatro semanas del mes">
+      <li class="semana"><span class="semana-num">Semana 1</span><h3>Planear</h3>
+        <ul><li>Ideas y temas del mes</li><li>Calendario en los primeros 5 días hábiles</li><li>Guion y estructura de reels e historias</li></ul></li>
+      <li class="semana"><span class="semana-num">Semana 2</span><h3>Crear</h3>
+        <ul><li>Grabación y diseño</li><li>Edición de cada pieza</li><li>Tu revisión y aprobación</li></ul></li>
+      <li class="semana"><span class="semana-num">Semana 3</span><h3>Publicar y pautar</h3>
+        <ul><li>Publicación según el calendario</li><li>Campañas activas en Meta</li><li>Ajustes rápidos sobre la marcha</li></ul></li>
+      <li class="semana"><span class="semana-num">Semana 4</span><h3>Medir y mejorar</h3>
+        <ul><li>Qué funcionó y qué no</li><li>Ajustes a la estrategia</li><li>Plan del próximo mes</li></ul></li>
+    </ol>
+    <p class="semanas-loop"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg><span>Con lo que medimos en la semana 4, volvemos a la semana 1 con mejores ideas.</span></p>
+    <div class="semanal">
+      <h3>Y cada semana revisamos</h3>
+      <ul class="chips">
+        <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1080,6 +1253,25 @@
         <div class="pilar-sub">Publicar por publicar no vende. Cada formato tiene un propósito dentro del embudo.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="resultado" id="resultado">
+  <div class="wrap">
+    <div class="resultado-head">
+      <div class="eyebrow">Después de trabajar con nosotros</div>
+      <h2>Lo que te queda</h2>
+      <p>No solo contenido publicado: también criterio, método y una base para seguir creciendo.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg></span><h3>Conocimiento nuevo</h3><p>Entiendes qué contenido funciona en tu negocio y por qué.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></span><h3>Otra forma de pensar</h3><p>Dejas de publicar por publicar y planeas con un objetivo.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-userplus"/></svg></span><h3>Clientes nuevos</h3><p>Más personas que te encuentran, te siguen y te escriben.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span><h3>Una marca reconocible</h3><p>Un feed ordenado que se ve profesional y se recuerda.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg></span><h3>Un método que sigue contigo</h3><p>Un calendario y una forma de trabajar que puedes retomar.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Datos para decidir</h3><p>Sabes qué números mirar y dónde conviene invertir.</p></div>
+    </div>
+    <p class="resultado-note">Los resultados dependen de tu negocio, tu sector y tu inversión en pauta. Por eso medimos y ajustamos cada mes.</p>
   </div>
 </section>
 
@@ -1395,7 +1587,8 @@
 
     var targets = [
       '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.ruta-note',
-      '.capacidades .cap-head', '.cap-item', '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
+      '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
+      '.mapa-head', '.nodo', '.semanas-head', '.semana', '.semanas-loop', '.semanal', '.resultado-head', '.tile', '.resultado-note',
       '.pk-head', '.card', '.comparar-head', '.tabla-wrap',
       '.proceso .eyebrow', '.proceso h2', '.paso', '.faq .eyebrow', '.faq h2', '.cta .wrap > *'
     ].join(',');
@@ -1518,6 +1711,30 @@
       }, { threshold: 0.5 });
       pio.observe(feat);
     }
+  })();
+</script>
+
+<script>
+  (function () {
+    var box = document.querySelector('.mapa-filtro');
+    var ruta = document.querySelector('.mapa-ruta');
+    var estado = document.getElementById('mapa-estado');
+    if (!box || !ruta) return;
+    box.hidden = false;
+    var nombres = { a: 'Arranque', c: 'Crecimiento', i: 'Integral', t: 'Transformación' };
+    var buttons = box.querySelectorAll('button');
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      var k = b.getAttribute('data-pk');
+      ruta.setAttribute('data-pk', k);
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      if (!estado) return;
+      var total = ruta.querySelectorAll('.nodo').length;
+      if (k === 'todos') { estado.textContent = 'Mostrando las ' + total + ' paradas del mapa.'; return; }
+      var n = ruta.querySelectorAll('.nodo[data-in~="' + k + '"]').length;
+      estado.textContent = nombres[k] + ' incluye ' + n + ' de ' + total + ' paradas.';
+    });
   })();
 </script>
 
