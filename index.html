@@ -22,9 +22,9 @@
   })();
 </script>
 <title>MA Creative</title>
-<meta name="description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — cuatro paquetes con precio claro. Empieza con un diagnóstico gratis.">
+<meta name="description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — tres paquetes con precio claro. Empieza con un diagnóstico gratis.">
 <meta property="og:title" content="MA Creative — Portafolio de servicios">
-<meta property="og:description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — cuatro paquetes con precio claro. Empieza con un diagnóstico gratis.">
+<meta property="og:description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — tres paquetes con precio claro. Empieza con un diagnóstico gratis.">
 <meta name="theme-color" content="#edf3f0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,52 +117,6 @@
   /* Íconos */
   .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-  /* Mapa del trabajo */
-  .mapa, .semanas, .resultado { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
-  .mapa-head, .semanas-head, .resultado-head { max-width: 60ch; margin-bottom: 20px; }
-  .mapa-head h2, .semanas-head h2, .resultado-head h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 12px;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .mapa-head p, .semanas-head p, .resultado-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
-  .mapa-head { max-width: none; }
-  .mapa-head p { max-width: 60ch; }
-  .mapa-head .mapa-leyenda { max-width: none; }
-  .mapa-head .mapa-leyenda { margin-top: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.04em; }
-  .mapa-ruta { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 14px; }
-  .mapa-ruta::before { content: ""; position: absolute; top: 20px; bottom: 20px; left: 37px; width: 2px; background: var(--line); }
-  .nodo {
-    position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; align-items: start;
-    padding: 14px; background: var(--paper-raised); border: 1px solid var(--line);
-    transition: opacity 220ms var(--ease-out);
-  }
-  .nodo.sec { background: var(--paper); border-style: dashed; }
-  .nodo-ico {
-    grid-row: span 2; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--accent-tint); border: 2px solid var(--accent); color: var(--accent); position: relative; z-index: 1;
-  }
-  .nodo.sec .nodo-ico { border-style: dashed; }
-  .nodo h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.08rem; margin: 0; letter-spacing: -0.01em; }
-  .nodo p { margin: 2px 0 0; font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft); }
-  .nodo-tag { display: inline-block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); }
-  .pks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; gap: 4px; grid-column: 2; }
-  .pks li {
-    width: 26px; height: 26px; display: grid; place-items: center;
-    font: 600 0.68rem "IBM Plex Mono", monospace; border: 1px solid var(--line); color: var(--ink-soft);
-  }
-  .pks li.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  @media (min-width: 700px) {
-    .mapa-ruta { grid-template-columns: repeat(3, 1fr); }
-    .mapa-ruta::before { display: none; }
-    .nodo { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; gap: 12px; padding: 18px 16px; }
-    .nodo-ico { grid-row: auto; }
-    .pks { grid-column: auto; margin-top: 0; }
-  }
-
   /* Semana a semana */
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--accent-tint); border: 1px solid var(--line); font-size: 0.88rem; color: var(--ink); }
@@ -194,13 +148,10 @@
 
   .pk-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
   }
-  @media (max-width: 900px) {
-    .pk-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 560px) {
+  @media (max-width: 759px) {
     .pk-grid { grid-template-columns: 1fr; }
   }
 
@@ -217,18 +168,6 @@
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
   }
-  .card.flagship {
-    background: var(--deep);
-    border-color: var(--deep);
-    color: var(--on-deep);
-  }
-  .card.flagship .tier-name,
-  .card.flagship .price,
-  .card.flagship .note { color: var(--on-deep); }
-  .card.flagship .item { color: var(--on-deep); opacity: 0.92; }
-  .card.flagship .item.sub { color: var(--on-deep); opacity: 0.75; }
-  .card.flagship .item::before { color: var(--accent-2); }
-  .card.flagship .price .per { color: var(--on-deep); opacity: 0.75; }
 
   .tag {
     position: absolute;
@@ -249,7 +188,6 @@
     color: var(--accent);
     letter-spacing: 0.08em;
   }
-  .card.flagship .tier-num { color: var(--accent-2); }
   .tier-name {
     font-family: "Fraunces", serif;
     font-weight: 500;
@@ -294,39 +232,13 @@
     padding-top: 12px;
     line-height: 1.5;
   }
-  .card.flagship .note { border-top-color: rgba(238,246,243,0.25); opacity: 0.75; }
 
 
-  /* Ruta */
-  .ruta { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
-  .ruta-head { max-width: 60ch; margin-bottom: 22px; }
-  .ruta-head h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 12px;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .ruta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  @media (max-width: 700px) { .ruta-grid { grid-template-columns: 1fr; } }
-  .etapa {
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .etapa-num { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-  .etapa h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; }
-  .etapa p { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 0.92rem; }
-  .etapa-pack { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
-  .etapa-pack strong { color: var(--ink); font-weight: 600; }
-  @media (min-width: 900px) { .tier-name { min-height: 2.5em; } .card-start { min-height: 4.3em; } .card .note { min-height: 5.6em; } }
+  @media (min-width: 760px) { .card .note { min-height: 5.6em; } }
+  @media (min-width: 760px) and (max-width: 1000px) { .tier-name { min-height: 2.5em; } .card-start { min-height: 4.3em; } }
+  @media (min-width: 1001px) { .card-start { min-height: 2.9em; } }
   .card-start { margin: -8px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
   .card-start strong { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
-  .card.flagship .card-start, .card.flagship .card-start strong { color: var(--on-deep); }
 
   /* Texto solo para lectores de pantalla */
   .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -401,8 +313,6 @@
   .hero .eyebrow { margin-bottom: 12px; }
   .hero-note { margin: 12px 0 0; font-size: 0.84rem; color: var(--ink-soft); }
   .card .btn { width: 100%; justify-content: center; text-align: center; font-size: 0.76rem; letter-spacing: 0; padding: 14px 8px; }
-  .card.flagship .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
-  .card.flagship .btn:focus-visible { outline-color: var(--on-deep); }
 
   /* Diagnóstico gratis */
   .diagnostico {
@@ -514,15 +424,7 @@
 
 <div class="progress" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
-  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m10 8 6 4-6 4z"/></symbol>
-  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
-  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17v-6M13 17V7M18 17v-9"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.7.6 1 1.4 1 2.3h6c0-.9.3-1.7 1-2.3A7 7 0 0 0 12 2z"/></symbol>
   <symbol id="i-userplus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></symbol>
@@ -572,100 +474,6 @@
   </div>
 </section>
 
-<section class="ruta" id="ruta">
-  <div class="wrap">
-    <div class="ruta-head">
-      <div class="eyebrow">La ruta</div>
-      <h2>Primero la base, después el crecimiento</h2>
-    </div>
-    <div class="ruta-grid">
-      <div class="etapa">
-        <div class="etapa-num">Etapa 1</div>
-        <h3>Ordenar la base</h3>
-        <p>Estrategia y calendario: qué comunicar, a quién y con qué intención.</p>
-        <div class="etapa-pack"><strong>Encaja:</strong> Arranque</div>
-      </div>
-      <div class="etapa">
-        <div class="etapa-num">Etapa 2</div>
-        <h3>Atraer con contenido</h3>
-        <p>Reels, carruseles e historias editados cada mes, publicados y medidos.</p>
-        <div class="etapa-pack"><strong>Encaja:</strong> Crecimiento</div>
-      </div>
-      <div class="etapa">
-        <div class="etapa-num">Etapa 3</div>
-        <h3>Acelerar con publicidad</h3>
-        <p>Campañas en Meta Ads por objetivo y WhatsApp para atender. CRM y automatizaciones cuando el volumen lo pida.</p>
-        <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="mapa" id="mapa">
-  <div class="wrap">
-    <div class="mapa-head">
-      <div class="eyebrow">El mapa del trabajo</div>
-      <h2>Qué hay detrás de cada paquete</h2>
-      <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
-    </div>
-    <ol class="mapa-ruta">
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg></span>
-        <div class="nodo-txt"><h3>Estrategia</h3><p>Qué decir, a quién y por qué.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
-        <div class="nodo-txt"><h3>Calendario</h3><p>Un plan de contenido para todo el mes.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-film"/></svg></span>
-        <div class="nodo-txt"><h3>Contenido</h3><p>Reels, carruseles e historias editados.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
-        <div class="nodo-txt"><h3>Publicación</h3><p>MA Creative programa y publica por ti.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
-        <div class="nodo-txt"><h3>Publicidad en Meta</h3><p>Campañas por objetivo, con tu presupuesto.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
-        <div class="nodo-txt"><h3>WhatsApp Business</h3><p>Tu canal listo para atender a quien llega.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg></span>
-        <div class="nodo-txt"><h3>Medición</h3><p>Informe y feedback de lo que funciona.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo sec" data-in="i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
-        <div class="nodo-txt"><h3>CRM</h3><p>Tus clientes en un solo lugar.</p><span class="nodo-tag">Complemento</span></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Integral, Transformación.</span>
-      </li>
-      <li class="nodo sec" data-in="t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
-        <div class="nodo-txt"><h3>App a medida</h3><p>Tu negocio en el celular y el computador.</p><span class="nodo-tag">Complemento</span></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Transformación.</span>
-      </li>
-    </ol>
-  </div>
-</section>
 
 <section class="semanas" id="semanas">
   <div class="wrap">
@@ -735,7 +543,7 @@
   <div class="wrap">
     <div class="pk-head">
       <div class="eyebrow">Paquetes</div>
-      <h2>Cuatro niveles, un mismo equipo</h2>
+      <h2>Tres niveles, un mismo equipo</h2>
       <p>Cada nivel suma más contenido que el anterior. Las cantidades son aproximadas y varían según cada cliente.</p>
       <p class="pauta-aviso"><strong>Importante:</strong> el presupuesto de pauta lo paga siempre el cliente, directamente a Meta. Los paquetes incluyen la gestión, no la inversión.</p>
     </div>
@@ -750,6 +558,7 @@
         <p class="card-start">Para empezar hoy: <strong>$300.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">Aprox. 4 reels · 4 carruseles · 4 historias</li>
+          <li class="item">Llamada virtual cada semana</li>
           <li class="item">Calendario de contenido mensual</li>
           <li class="item sub">MA Creative programa y publica</li>
           <li class="item">Propuesta de estrategia para redes</li>
@@ -770,6 +579,7 @@
         <p class="card-start">Para empezar hoy: <strong>$650.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">Aprox. 6 reels · 6 carruseles · 6 historias</li>
+          <li class="item">Llamada virtual cada semana</li>
           <li class="item">Calendario mensual</li>
           <li class="item sub">MA Creative programa y publica</li>
           <li class="item">Manejo de redes sociales</li>
@@ -793,6 +603,7 @@
         <p class="card-start">Para empezar hoy: <strong>$1.150.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">Aprox. 8 reels · 8 carruseles · 8 historias</li>
+          <li class="item">Llamada virtual cada semana</li>
           <li class="item">Calendario mensual</li>
           <li class="item">Sesión mensual de ideas de contenido</li>
           <li class="item">Informe estadístico + feedback</li>
@@ -805,24 +616,6 @@
         <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-integral" data-goatcounter-title="Paquete Integral">Quiero este paquete</a>
       </div>
 
-      <div class="card flagship">
-        <div>
-          <div class="tier-num">04 · Transformación</div>
-          <div class="tier-name">Integral + software</div>
-        </div>
-        <div class="price">$4.000.000<span class="per">Desde · COP · pago único</span></div>
-        <p class="card-start">Abono inicial: se acuerda en la cotización</p>
-        <ul class="items">
-          <li class="item">App a medida: clientes, inventario, facturas y pedidos</li>
-          <li class="item">Disponible en celular y computador</li>
-          <li class="item">Automatización del CRM</li>
-          <li class="item">Todo el paquete Integral, mes a mes</li>
-          <li class="item sub">El Integral se cobra aparte: $2.300.000/mes</li>
-          <li class="item sub">Incluye el CRM ya creado</li>
-        </ul>
-        <div class="note">El alcance de la app se define por cotización.</div>
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-transformacion" data-goatcounter-title="Paquete Transformación">Quiero este paquete</a>
-      </div>
     </div>
   </div>
 </section>
@@ -833,7 +626,7 @@
     <div class="condiciones-grid">
       <div class="cond-item">
         <div class="cond-title">Permanencia</div>
-        <div class="cond-sub">Mínimo 3 meses en los paquetes mensuales.</div>
+        <div class="cond-sub">Mínimo 3 meses.</div>
       </div>
       <div class="cond-item">
         <div class="cond-title">Forma de pago</div>
@@ -859,7 +652,7 @@
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var targets = [
-      '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.mapa-head', '.nodo', '.semanas-head', '.chips li',
+      '.diagnostico .wrap > *', '.semanas-head', '.chips li',
       '.resultado-head', '.tile', '.resultado-note', '.pk-head', '.card', '.proceso .eyebrow', '.proceso h2', '.paso'
     ].join(',');
 
