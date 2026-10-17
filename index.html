@@ -1,6 +1,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add("js");</script>
+<script>
+  // Al abrir o recargar, la página siempre empieza desde arriba (sin recordar la posición ni el #ancla).
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  (function () {
+    var alInicio = function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+    window.addEventListener('DOMContentLoaded', alInicio);
+    window.addEventListener('load', alInicio);
+    window.addEventListener('pageshow', alInicio);
+    // Los enlaces internos (como "Ver paquetes") bajan a su sección sin escribir un #ancla en la dirección.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView();
+    });
+  })();
+</script>
 <title>MA Creative</title>
 <meta name="description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — cuatro paquetes con precio claro. Empieza con un diagnóstico gratis.">
 <meta property="og:title" content="MA Creative — Portafolio de servicios">
