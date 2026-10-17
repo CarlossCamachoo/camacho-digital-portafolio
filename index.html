@@ -235,34 +235,6 @@
   /* Texto solo para lectores de pantalla */
   .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-  /* Proceso */
-  .proceso {
-    padding: clamp(32px, 5vw, 48px) 0;
-  }
-  .proceso h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 22px;
-    letter-spacing: -0.01em;
-  }
-  .proceso-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 700px) {
-    .proceso-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .paso .paso-num {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.95rem;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .paso .paso-title { font-weight: 600; margin: 6px 0 4px; }
-  .paso .paso-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
-
   /* Botones de contacto */
   .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
   .hero-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--accent); font: 500 0.92rem "Work Sans", sans-serif; text-decoration: underline; text-underline-offset: 4px; }
@@ -431,35 +403,6 @@
 </section>
 
 
-<section class="proceso">
-  <div class="wrap">
-    <div class="eyebrow">Cómo trabaja MA Creative</div>
-    <h2>De la primera llamada al primer reporte</h2>
-    <div class="proceso-grid">
-      <div class="paso">
-        <div class="paso-num">01</div>
-        <div class="paso-title">Diagnóstico gratis</div>
-        <div class="paso-sub">Revisión de tu negocio, tu competencia y tus redes.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">02</div>
-        <div class="paso-title">Propuesta</div>
-        <div class="paso-sub">Eliges el paquete y se ajusta el alcance a tu presupuesto.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">03</div>
-        <div class="paso-title">Ejecución</div>
-        <div class="paso-sub">MA Creative produce, publica y gestiona la pauta.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">04</div>
-        <div class="paso-title">Reporte</div>
-        <div class="paso-sub">Resultados cada mes y ajustes con datos reales.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="diagnostico" id="diagnostico">
   <div class="wrap">
     <div>
@@ -573,7 +516,7 @@
 
     var targets = [
       '.diagnostico .wrap > *',
-      '.resultado-head', '.tile', '.resultado-note', '.pk-head', '.card', '.proceso .eyebrow', '.proceso h2', '.paso'
+      '.resultado-head', '.tile', '.resultado-note', '.pk-head', '.card'
     ].join(',');
 
     // Cada bloque aparece una sola vez, con un pequeño escalón entre los que entran juntos.
