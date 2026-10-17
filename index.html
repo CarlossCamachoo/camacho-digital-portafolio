@@ -64,7 +64,7 @@
   .mark {
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 1.75rem;
     letter-spacing: -0.01em;
   }
   .mark span { color: var(--accent); }
@@ -111,7 +111,6 @@
   .mapa-head p, .semanas-head p, .resultado-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
   .mapa-head { max-width: none; }
   .mapa-head p { max-width: 60ch; }
-  .mapa-titulo { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; margin-bottom: 14px; }
   .mapa-head .mapa-leyenda { max-width: none; }
   .mapa-head .mapa-leyenda { margin-top: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.04em; }
   .mapa-ruta { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 14px; }
@@ -136,16 +135,12 @@
     font: 600 0.68rem "IBM Plex Mono", monospace; border: 1px solid var(--line); color: var(--ink-soft);
   }
   .pks li.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  @media (min-width: 760px) {
-    .mapa-ruta { grid-template-columns: 1fr 1fr; column-gap: 72px; align-items: start; }
-    .mapa-ruta::before { left: 50%; transform: translateX(-1px); }
-    .nodo:nth-child(even) { margin-top: 44px; }
-    .nodo::before { content: ""; position: absolute; top: 35px; width: 36px; height: 2px; background: var(--line); }
-    .nodo::after { content: ""; position: absolute; top: 29px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); z-index: 2; }
-    .nodo:nth-child(odd)::before { right: -36px; }
-    .nodo:nth-child(even)::before { left: -36px; }
-    .nodo:nth-child(odd)::after { right: -43px; }
-    .nodo:nth-child(even)::after { left: -43px; }
+  @media (min-width: 700px) {
+    .mapa-ruta { grid-template-columns: repeat(3, 1fr); }
+    .mapa-ruta::before { display: none; }
+    .nodo { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; gap: 12px; padding: 18px 16px; }
+    .nodo-ico { grid-row: auto; }
+    .pks { grid-column: auto; margin-top: 0; }
   }
 
   /* Semana a semana */
@@ -166,7 +161,7 @@
   .resultado-note { margin: 18px 0 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
 
   /* Paquetes */
-  .paquetes { padding: clamp(32px, 5vw, 48px) 0 clamp(48px, 7vw, 72px); }
+  .paquetes { padding: clamp(32px, 5vw, 48px) 0; }
   .pk-head { margin-bottom: 28px; max-width: 60ch; }
   .pk-head h2 {
     font-family: "Fraunces", serif;
@@ -273,7 +268,7 @@
 
   .note {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     color: var(--ink-soft);
     border-top: 1px solid var(--line);
     padding-top: 12px;
@@ -281,38 +276,6 @@
   }
   .card.flagship .note { border-top-color: rgba(238,246,243,0.25); opacity: 0.75; }
 
-  .gift-label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent-2-text);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .gift-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .gift-list li {
-    font-size: 0.78rem;
-    line-height: 1.4;
-    color: var(--accent-2-text);
-    padding-left: 14px;
-    position: relative;
-  }
-  .gift-list li::before {
-    content: "+";
-    position: absolute;
-    left: 0;
-    font-weight: 600;
-  }
-  .card.flagship .gift-label,
-  .card.flagship .gift-list li { color: var(--accent-2); }
 
   /* Ruta */
   .ruta { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
@@ -340,6 +303,7 @@
   .etapa p { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 0.92rem; }
   .etapa-pack { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
   .etapa-pack strong { color: var(--ink); font-weight: 600; }
+  @media (min-width: 900px) { .tier-name { min-height: 2.5em; } .card-start { min-height: 4.3em; } .card .note { min-height: 5.6em; } }
   .card-start { margin: -8px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
   .card-start strong { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
   .card.flagship .card-start, .card.flagship .card-start strong { color: var(--on-deep); }
@@ -349,8 +313,8 @@
 
   /* Condiciones */
   .condiciones {
-    padding: clamp(20px, 3vw, 26px) 0;
-    border-bottom: 1px solid var(--line);
+    padding: clamp(28px, 4vw, 36px) 0 clamp(44px, 6vw, 64px);
+    border-top: 1px solid var(--line);
   }
   .condiciones-label {
     font-family: "IBM Plex Mono", monospace;
@@ -413,6 +377,8 @@
 
   /* Botones de contacto */
   .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .hero-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--accent); font: 500 0.92rem "Work Sans", sans-serif; text-decoration: underline; text-underline-offset: 4px; }
+  .hero .eyebrow { margin-bottom: 12px; }
   .hero-note { margin: 12px 0 0; font-size: 0.84rem; color: var(--ink-soft); }
   .card .btn { width: 100%; justify-content: center; text-align: center; font-size: 0.76rem; letter-spacing: 0; padding: 14px 8px; }
   .card.flagship .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
@@ -443,11 +409,7 @@
   }
   .diagnostico p { color: var(--ink-soft); line-height: 1.6; margin: 0; max-width: 56ch; }
   .diag-side { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
-  .diag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-  .diag-list li { font-size: 0.92rem; line-height: 1.4; padding-left: 18px; position: relative; }
-  .diag-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
   .diag-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .diag-side small { color: var(--ink-soft); font-size: 0.82rem; }
 
   /* Footer CTA */
   .btn {
@@ -523,7 +485,7 @@
   /* Celular: botones principales a todo el ancho, fáciles de tocar con el pulgar */
   @media (max-width: 560px) {
     .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
-    .mapa-titulo .btn { width: 100%; justify-content: center; }
+    .hero-cta .hero-link { flex: 1 1 100%; padding-left: 0; }
     .diag-side { align-items: stretch; }
     .diag-btns { flex-direction: column; }
     .diag-btns .btn { justify-content: center; }
@@ -556,24 +518,27 @@
     </div>
     <div class="eyebrow h-in d1">Contenido y publicidad para tu negocio</div>
     <h1 class="h-in d2">Contenido que atrae. <em>Publicidad que convierte.</em></h1>
-    <p class="hero-sub h-in d3">Creamos el contenido de tus redes y gestionamos tu publicidad en Meta para que tu negocio llegue a más clientes. Cuatro paquetes con precio claro, y empiezas con un diagnóstico gratis.</p>
+    <p class="hero-sub h-in d3">MA Creative crea el contenido de tus redes y gestiona tu publicidad en Meta para que tu negocio llegue a más clientes.</p>
     <div class="hero-cta h-in d4">
       <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-hero-diagnostico" data-goatcounter-title="Hero: diagnóstico gratis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         Pedir mi diagnóstico gratis
       </a>
-      <a class="btn btn-secondary" href="#paquetes" data-goatcounter-click="cta-hero-ver-paquetes" data-goatcounter-title="Hero: ver paquetes">Ver paquetes</a>
+      <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-hero-llamada" data-goatcounter-title="Hero: agendar llamada">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg>
+        Agendar llamada
+      </a>
+      <a class="hero-link" href="#paquetes" data-goatcounter-click="cta-hero-ver-paquetes" data-goatcounter-title="Hero: ver paquetes">Ver paquetes ↓</a>
     </div>
-    <p class="hero-note h-in d5">Sin costo y sin compromiso. Te respondemos por WhatsApp.</p>
+    <p class="hero-note h-in d5">Sin costo y sin compromiso.</p>
   </div>
 </header>
 
 <section class="resultado" id="resultado">
   <div class="wrap">
     <div class="resultado-head">
-      <div class="eyebrow">Después de trabajar con nosotros</div>
+      <div class="eyebrow">Después de trabajar con MA Creative</div>
       <h2>Lo que te queda</h2>
-      <p>No solo contenido publicado: también criterio, método y una base para seguir creciendo.</p>
     </div>
     <div class="tiles">
       <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg></span><h3>Conocimiento nuevo</h3><p>Entiendes qué contenido funciona en tu negocio y por qué.</p></div>
@@ -583,7 +548,7 @@
       <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg></span><h3>Un método que sigue contigo</h3><p>Un calendario y una forma de trabajar que puedes retomar.</p></div>
       <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Datos para decidir</h3><p>Sabes qué números mirar y dónde conviene invertir.</p></div>
     </div>
-    <p class="resultado-note">Los resultados dependen de tu negocio, tu sector y tu inversión en pauta. Por eso medimos y ajustamos cada mes.</p>
+    <p class="resultado-note">Los resultados dependen de tu negocio, tu sector y tu inversión en pauta.</p>
   </div>
 </section>
 
@@ -597,19 +562,19 @@
       <div class="etapa">
         <div class="etapa-num">Etapa 1</div>
         <h3>Ordenar la base</h3>
-        <p>Definimos qué comunicar, a quién y con qué intención: estrategia y calendario de contenido.</p>
+        <p>Estrategia y calendario: qué comunicar, a quién y con qué intención.</p>
         <div class="etapa-pack"><strong>Encaja:</strong> Arranque</div>
       </div>
       <div class="etapa">
         <div class="etapa-num">Etapa 2</div>
         <h3>Atraer con contenido</h3>
-        <p>Reels, carruseles e historias editados cada mes, publicados y medidos, para que te encuentren y te recuerden.</p>
+        <p>Reels, carruseles e historias editados cada mes, publicados y medidos.</p>
         <div class="etapa-pack"><strong>Encaja:</strong> Crecimiento</div>
       </div>
       <div class="etapa">
         <div class="etapa-num">Etapa 3</div>
         <h3>Acelerar con publicidad</h3>
-        <p>Campañas en Meta Ads por objetivo y WhatsApp para atender a quien llega. CRM y automatizaciones cuando tu volumen lo pida.</p>
+        <p>Campañas en Meta Ads por objetivo y WhatsApp para atender. CRM y automatizaciones cuando el volumen lo pida.</p>
         <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
       </div>
     </div>
@@ -619,17 +584,8 @@
 <section class="mapa" id="mapa">
   <div class="wrap">
     <div class="mapa-head">
-      <div class="mapa-titulo">
-        <div>
-          <div class="eyebrow">El mapa del trabajo</div>
-          <h2>Qué hay detrás de cada paquete</h2>
-        </div>
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener" data-goatcounter-click="cta-mapa-llamada" data-goatcounter-title="Mapa: agendar llamada por WhatsApp">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>
-          Agendar llamada por WhatsApp
-        </a>
-      </div>
-      <p>De la idea al cliente, en nueve paradas. Las casillas muestran en qué paquetes está cada una.</p>
+      <div class="eyebrow">El mapa del trabajo</div>
+      <h2>Qué hay detrás de cada paquete</h2>
       <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
     </div>
     <ol class="mapa-ruta">
@@ -653,7 +609,7 @@
       </li>
       <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
-        <div class="nodo-txt"><h3>Publicación</h3><p>Programamos y publicamos por ti.</p></div>
+        <div class="nodo-txt"><h3>Publicación</h3><p>MA Creative programa y publica por ti.</p></div>
         <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
         <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
       </li>
@@ -695,7 +651,7 @@
   <div class="wrap">
     <div class="semanas-head">
       <div class="eyebrow">Semana a semana</div>
-      <h2>Lo que revisamos cada semana</h2>
+      <h2>Lo que MA Creative revisa cada semana</h2>
     </div>
     <ul class="chips">
       <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
@@ -705,28 +661,28 @@
 
 <section class="proceso">
   <div class="wrap">
-    <div class="eyebrow">Cómo trabajamos</div>
+    <div class="eyebrow">Cómo trabaja MA Creative</div>
     <h2>De la primera llamada al primer reporte</h2>
     <div class="proceso-grid">
       <div class="paso">
         <div class="paso-num">01</div>
         <div class="paso-title">Diagnóstico gratis</div>
-        <div class="paso-sub">Revisamos tu negocio, tu competencia y tus redes, y te decimos en qué etapa de la ruta estás.</div>
+        <div class="paso-sub">Revisión de tu negocio, tu competencia y tus redes.</div>
       </div>
       <div class="paso">
         <div class="paso-num">02</div>
         <div class="paso-title">Propuesta</div>
-        <div class="paso-sub">Elegimos juntos el paquete y ajustamos el alcance a tu presupuesto.</div>
+        <div class="paso-sub">Eliges el paquete y se ajusta el alcance a tu presupuesto.</div>
       </div>
       <div class="paso">
         <div class="paso-num">03</div>
         <div class="paso-title">Ejecución</div>
-        <div class="paso-sub">Producimos, publicamos y gestionamos la pauta según lo acordado.</div>
+        <div class="paso-sub">MA Creative produce, publica y gestiona la pauta.</div>
       </div>
       <div class="paso">
         <div class="paso-num">04</div>
         <div class="paso-title">Reporte</div>
-        <div class="paso-sub">Entregamos resultados cada mes y ajustamos la estrategia con datos reales.</div>
+        <div class="paso-sub">Resultados cada mes y ajustes con datos reales.</div>
       </div>
     </div>
   </div>
@@ -736,16 +692,10 @@
   <div class="wrap">
     <div>
       <div class="eyebrow">Diagnóstico gratis</div>
-      <h2>Empieza sin pagar: te decimos qué paquete te conviene</h2>
-      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso. Lo hacemos por WhatsApp o en una videollamada por Meet, en el horario que tú elijas.</p>
+      <h2>Empieza sin pagar: descubre qué paquete te conviene</h2>
+      <p>MA Creative revisa tu negocio, tus redes y tu competencia, y te dice qué paquete encaja y cuánto invertir en pauta. Sin costo y sin compromiso.</p>
     </div>
     <div class="diag-side">
-      <ul class="diag-list">
-        <li>Revisamos tus redes actuales</li>
-        <li>Miramos qué hace tu competencia</li>
-        <li>Te decimos en qué etapa estás y qué paquete encaja</li>
-        <li>Definimos cuánto conviene invertir en pauta</li>
-      </ul>
       <div class="diag-btns">
         <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -755,6 +705,103 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
           Agendar llamada por Meet
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="paquetes" id="paquetes">
+  <div class="wrap">
+    <div class="pk-head">
+      <div class="eyebrow">Paquetes</div>
+      <h2>Cuatro niveles, un mismo equipo</h2>
+      <p>Cada nivel suma más contenido que el anterior. Las cantidades son aproximadas y varían según cada cliente.</p>
+      <p class="pauta-aviso"><strong>Importante:</strong> el presupuesto de pauta lo paga siempre el cliente, directamente a Meta. Los paquetes incluyen la gestión, no la inversión.</p>
+    </div>
+
+    <div class="pk-grid">
+      <div class="card">
+        <div>
+          <div class="tier-num">01 · Arranque</div>
+          <div class="tier-name">Contenido base</div>
+        </div>
+        <div class="price">$600.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$300.000</strong> (50% de anticipo)</p>
+        <ul class="items">
+          <li class="item">Aprox. 7 reels · 7 carruseles · 12 historias</li>
+          <li class="item">Calendario de contenido mensual</li>
+          <li class="item sub">MA Creative programa y publica</li>
+          <li class="item">Propuesta de estrategia para redes</li>
+          <li class="item">Gestión de pauta digital</li>
+          <li class="item sub">Pauta a cargo del cliente</li>
+          <li class="item">Informe estadístico + feedback</li>
+        </ul>
+        <div class="note">Ideal para empezar en redes.</div>
+        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-arranque" data-goatcounter-title="Paquete Arranque">Quiero este paquete</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tier-num">02 · Crecimiento</div>
+          <div class="tier-name">Contenido + presencia</div>
+        </div>
+        <div class="price">$1.300.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$650.000</strong> (50% de anticipo)</p>
+        <ul class="items">
+          <li class="item">Aprox. 9 reels · 9 carruseles · 14 historias</li>
+          <li class="item">Calendario mensual</li>
+          <li class="item sub">MA Creative programa y publica</li>
+          <li class="item">Manejo de redes sociales</li>
+          <li class="item">Propuesta de estrategia para redes</li>
+          <li class="item">Sesión mensual de ideas de contenido</li>
+          <li class="item">Gestión de pauta digital</li>
+          <li class="item sub">Pauta a cargo del cliente</li>
+          <li class="item">Informe estadístico + feedback</li>
+        </ul>
+        <div class="note">Constancia sin operar tus redes.</div>
+        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-crecimiento" data-goatcounter-title="Paquete Crecimiento">Quiero este paquete</a>
+      </div>
+
+      <div class="card featured">
+        <span class="tag">Más elegido</span>
+        <div>
+          <div class="tier-num">03 · Integral</div>
+          <div class="tier-name">Contenido + publicidad</div>
+        </div>
+        <div class="price">$2.300.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$1.150.000</strong> (50% de anticipo)</p>
+        <ul class="items">
+          <li class="item">Aprox. 11 reels · 11 carruseles · 16 historias</li>
+          <li class="item">Calendario mensual + edición completa</li>
+          <li class="item">Sesión mensual de ideas de contenido</li>
+          <li class="item">Informe estadístico + feedback</li>
+          <li class="item">Meta Ads + pautas por objetivo</li>
+          <li class="item sub">Pauta a cargo del cliente</li>
+          <li class="item">WhatsApp Business + estrategia</li>
+          <li class="item">Creación de CRM</li>
+        </ul>
+        <div class="note">MA Creative gestiona tus campañas; la pauta la pagas tú a Meta.</div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-integral" data-goatcounter-title="Paquete Integral">Quiero este paquete</a>
+      </div>
+
+      <div class="card flagship">
+        <div>
+          <div class="tier-num">04 · Transformación</div>
+          <div class="tier-name">Integral + software</div>
+        </div>
+        <div class="price">$4.000.000<span class="per">Desde · COP · pago único</span></div>
+        <p class="card-start">Abono inicial: se acuerda en la cotización</p>
+        <ul class="items">
+          <li class="item">App a medida: clientes, inventario, facturas y pedidos</li>
+          <li class="item">Disponible en celular y computador</li>
+          <li class="item">Automatización del CRM</li>
+          <li class="item">Todo el paquete Integral, mes a mes</li>
+          <li class="item sub">El Integral se cobra aparte: $2.300.000/mes</li>
+          <li class="item sub">Incluye el CRM ya creado</li>
+        </ul>
+        <div class="note">El alcance de la app se define por cotización.</div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-transformacion" data-goatcounter-title="Paquete Transformación">Quiero este paquete</a>
       </div>
     </div>
   </div>
@@ -779,136 +826,6 @@
       <div class="cond-item">
         <div class="cond-title">Tiempos de entrega</div>
         <div class="cond-sub">Calendario de contenido: primeros 5 días hábiles del mes.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="paquetes" id="paquetes">
-  <div class="wrap">
-    <div class="pk-head">
-      <div class="eyebrow">Paquetes</div>
-      <h2>Cuatro niveles, un mismo equipo</h2>
-      <p>Cada nivel suma más contenido y más servicios que el anterior. Empiezas donde tu negocio está hoy y subes de nivel cuando estés listo.</p>
-      <p class="pauta-aviso"><strong>Importante:</strong> el presupuesto de pauta lo paga siempre el cliente, directamente a Meta. Los paquetes incluyen la gestión, no la inversión.</p>
-    </div>
-
-    <div class="pk-grid">
-      <div class="card">
-        <div>
-          <div class="tier-num">01 · Arranque</div>
-          <div class="tier-name">Contenido base</div>
-        </div>
-        <div class="price">$600.000<span class="per">COP / mes</span></div>
-        <p class="card-start">Para empezar hoy: <strong>$300.000</strong> (50% de anticipo)</p>
-        <ul class="items">
-          <li class="item">2 reels editados</li>
-          <li class="item">2 carruseles</li>
-          <li class="item">4 historias</li>
-          <li class="item">Calendario de contenido mensual</li>
-          <li class="item sub">Nosotros programamos y publicamos</li>
-          <li class="item">Propuesta de estrategia para redes</li>
-          <li class="item">Gestión de pauta digital</li>
-          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
-          <li class="item">Informe estadístico + feedback</li>
-        </ul>
-        <div>
-          <span class="gift-label">Regalos incluidos</span>
-          <ul class="gift-list">
-            <li>Auditoría gratis de tus redes actuales</li>
-            <li>Plantilla de calendario de contenido editable</li>
-            <li>1 historia de bienvenida gratis</li>
-          </ul>
-        </div>
-        <div class="note">Ideal para negocios que están empezando en redes.</div>
-        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-arranque" data-goatcounter-title="Paquete Arranque">Quiero este paquete</a>
-      </div>
-
-      <div class="card">
-        <div>
-          <div class="tier-num">02 · Crecimiento</div>
-          <div class="tier-name">Contenido + presencia</div>
-        </div>
-        <div class="price">$1.300.000<span class="per">COP / mes</span></div>
-        <p class="card-start">Para empezar hoy: <strong>$650.000</strong> (50% de anticipo)</p>
-        <ul class="items">
-          <li class="item">4 reels · 4 carruseles · 6 historias</li>
-          <li class="item">Calendario mensual</li>
-          <li class="item sub">Nosotros programamos y publicamos</li>
-          <li class="item">Manejo de redes sociales</li>
-          <li class="item">Propuesta de estrategia para redes</li>
-          <li class="item">Sesión mensual de ideas de contenido</li>
-          <li class="item sub">Convertimos lo que ya sabes de tu negocio en contenido</li>
-          <li class="item">Gestión de pauta digital</li>
-          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
-          <li class="item">Informe estadístico + feedback</li>
-        </ul>
-        <div>
-          <span class="gift-label">Regalos incluidos</span>
-          <ul class="gift-list">
-            <li>1 pieza extra de contenido el primer mes</li>
-            <li>Optimización gratis del perfil de WhatsApp/Instagram</li>
-            <li>Mini sesión de fotos con celular</li>
-          </ul>
-        </div>
-        <div class="note">Para marcas que quieren constancia sin operarla ellas mismas.</div>
-        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-crecimiento" data-goatcounter-title="Paquete Crecimiento">Quiero este paquete</a>
-      </div>
-
-      <div class="card featured">
-        <span class="tag">Más elegido</span>
-        <div>
-          <div class="tier-num">03 · Integral</div>
-          <div class="tier-name">Contenido + publicidad</div>
-        </div>
-        <div class="price">$2.300.000<span class="per">COP / mes</span></div>
-        <p class="card-start">Para empezar hoy: <strong>$1.150.000</strong> (50% de anticipo)</p>
-        <ul class="items">
-          <li class="item">6 reels · 6 carruseles · 12 historias</li>
-          <li class="item">Calendario mensual + edición completa</li>
-          <li class="item">Sesión mensual de ideas de contenido</li>
-          <li class="item">Informe estadístico + feedback</li>
-          <li class="item">Meta Ads + pautas por objetivo</li>
-          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
-          <li class="item">WhatsApp Business + estrategia</li>
-          <li class="item">Creación de CRM</li>
-        </ul>
-        <div>
-          <span class="gift-label">Regalos incluidos</span>
-          <ul class="gift-list">
-            <li>Sesión de estrategia trimestral gratis</li>
-            <li>Campaña de prueba en el primer mes</li>
-          </ul>
-        </div>
-        <div class="note">Nosotros diseñamos, administramos y escalamos tus campañas; la inversión en pauta la pagas tú directamente a Meta.</div>
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-integral" data-goatcounter-title="Paquete Integral">Quiero este paquete</a>
-      </div>
-
-      <div class="card flagship">
-        <div>
-          <div class="tier-num">04 · Transformación</div>
-          <div class="tier-name">Integral + software</div>
-        </div>
-        <div class="price">Desde $4.000.000<span class="per">COP · pago único</span></div>
-        <p class="card-start">Abono inicial: se acuerda en la cotización</p>
-        <ul class="items">
-          <li class="item">App a medida: clientes, inventario, facturas y pedidos</li>
-          <li class="item">Disponible en celular y computador</li>
-          <li class="item">Automatización del CRM</li>
-          <li class="item">Todo el paquete Integral, mes a mes</li>
-          <li class="item sub">El Integral se cobra aparte: $2.300.000/mes</li>
-          <li class="item sub">Incluye el CRM ya creado</li>
-        </ul>
-        <div>
-          <span class="gift-label">Regalos incluidos</span>
-          <ul class="gift-list">
-            <li>1 mes de soporte técnico post-lanzamiento</li>
-            <li>Capacitación al equipo para usar la app y el CRM</li>
-            <li>Migración de datos existentes sin costo</li>
-          </ul>
-        </div>
-        <div class="note">Alcance de la app se define por cotización — funcionalidades a la medida del negocio.</div>
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-transformacion" data-goatcounter-title="Paquete Transformación">Quiero este paquete</a>
       </div>
     </div>
   </div>
