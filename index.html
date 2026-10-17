@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js");</script>
 <title>MA Creative</title>
 <meta name="description" content="Creación de contenido para redes y gestión de publicidad en Meta Ads — cuatro paquetes con precio claro. Empieza con un diagnóstico gratis.">
 <meta property="og:title" content="MA Creative — Portafolio de servicios">
@@ -559,8 +560,7 @@
   .tabla thead th { vertical-align: bottom; padding-top: 16px; padding-bottom: 14px; font-weight: 400; }
   .tabla thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--paper-raised); border-right: 1px solid var(--line); }
   .tabla .t-name { display: block; font-family: "Fraunces", serif; font-weight: 500; font-size: 1.05rem; }
-  .tabla .t-price { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.95rem; }
-  .tabla .t-price small, .tabla td small { display: block; font-family: "Work Sans", sans-serif; font-weight: 400; font-size: 0.76rem; color: var(--ink-soft); margin-top: 2px; }
+  .tabla td small { display: block; font-family: "Work Sans", sans-serif; font-weight: 400; font-size: 0.76rem; color: var(--ink-soft); margin-top: 2px; }
   .tabla tr.grupo th {
     text-align: left;
     background: var(--paper);
@@ -574,7 +574,6 @@
     position: sticky;
     left: 0;
   }
-  .tabla .t-price small.t-desde { margin: 0 0 1px; }
   .tabla .feat { background: var(--accent-tint); }
   .tabla thead th.feat { border-top: 3px solid var(--accent); }
   .tabla .t-tag { display: block; margin-bottom: 4px; font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); }
@@ -817,9 +816,10 @@
     padding: 15px 20px;
     min-height: 44px;
     border: 1px solid var(--accent);
-    transition: opacity 0.15s ease;
+    transition: transform 160ms var(--ease-out), opacity 150ms ease;
   }
-  .btn:hover { opacity: 0.85; }
+  .btn:active { transform: scale(0.97); }
+  @media (hover: hover) and (pointer: fine) { .btn:hover { opacity: 0.85; } }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .btn-primary { background: var(--accent); color: var(--accent-ink); }
   .btn-secondary { background: transparent; color: var(--ink); }
@@ -827,24 +827,64 @@
   .cta .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
   .cta .btn:focus-visible { outline-color: var(--on-deep); }
   .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  /* Movimiento: solo opacity y transform, curvas fuertes; se desactiva con "reducir movimiento" */
+  :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); interpolate-size: allow-keywords; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pop { from { opacity: 0; transform: scale(0.9); } }
+  .js .h-in { animation: rise 640ms var(--ease-out) both; }
+  .js .h-in.d1 { animation-delay: 60ms; }
+  .js .h-in.d2 { animation-delay: 140ms; }
+  .js .h-in.d3 { animation-delay: 220ms; }
+  .js .h-in.d4 { animation-delay: 300ms; }
+  .js .h-in.d5 { animation-delay: 380ms; }
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 560ms var(--ease-out), transform 560ms var(--ease-out);
+  }
+  .js .reveal.in { opacity: 1; transform: none; }
+  .js .stagger:not(.on) span { opacity: 0; }
+  .js .stagger.on span { animation: pop 380ms var(--ease-out) backwards; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card { transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(31,48,54,0.10); }
+    .card.featured:hover { box-shadow: 0 0 0 1px var(--accent), 0 12px 26px rgba(31,48,54,0.12); }
+  }
+
+  .faq-item::details-content {
+    height: 0;
+    overflow: clip;
+    opacity: 0;
+    transition: height 220ms var(--ease-out), opacity 220ms var(--ease-out), content-visibility 220ms allow-discrete;
+  }
+  .faq-item[open]::details-content { height: auto; opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .h-in { animation-name: fade-in; animation-duration: 300ms; }
+    .btn:active { transform: none; }
+    .card:hover { transform: none; }
+    .faq-item::details-content { transition: opacity 150ms ease; }
+  }
 </style>
 
 <header class="hero">
   <div class="wrap">
-    <div class="hero-top">
+    <div class="hero-top h-in">
       <div class="mark">MA<span>·</span>Creative</div>
     </div>
-    <div class="eyebrow">Contenido y publicidad para tu negocio</div>
-    <h1>Contenido que atrae. <em>Publicidad que convierte.</em></h1>
-    <p class="hero-sub">Creamos el contenido de tus redes y gestionamos tu publicidad en Meta para que tu negocio llegue a más clientes. Cuatro paquetes con precio claro, y empiezas con un diagnóstico gratis.</p>
-    <div class="hero-cta">
+    <div class="eyebrow h-in d1">Contenido y publicidad para tu negocio</div>
+    <h1 class="h-in d2">Contenido que atrae. <em>Publicidad que convierte.</em></h1>
+    <p class="hero-sub h-in d3">Creamos el contenido de tus redes y gestionamos tu publicidad en Meta para que tu negocio llegue a más clientes. Cuatro paquetes con precio claro, y empiezas con un diagnóstico gratis.</p>
+    <div class="hero-cta h-in d4">
       <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-hero-diagnostico" data-goatcounter-title="Hero: diagnóstico gratis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         Pedir mi diagnóstico gratis
       </a>
       <a class="btn btn-secondary" href="#paquetes" data-goatcounter-click="cta-hero-ver-paquetes" data-goatcounter-title="Hero: ver paquetes">Ver paquetes</a>
     </div>
-    <p class="hero-note">Sin costo y sin compromiso. Te respondemos por WhatsApp.</p>
+    <p class="hero-note h-in d5">Sin costo y sin compromiso. Te respondemos por WhatsApp.</p>
   </div>
 </header>
 
@@ -1174,7 +1214,7 @@
     <div class="comparar-head">
       <div class="eyebrow">Comparativa</div>
       <h2>Los cuatro paquetes, lado a lado</h2>
-      <p>Mira qué incluye cada uno y cuál se ajusta a lo que necesita tu negocio hoy.</p>
+      <p>Aquí ves qué incluye cada paquete. Los precios están en las tarjetas de arriba.</p>
     </div>
     <p class="tabla-hint">Desliza la tabla para ver todos los paquetes →</p>
     <div class="tabla-wrap" role="region" aria-label="Comparativa de los cuatro paquetes" tabindex="0">
@@ -1182,10 +1222,10 @@
         <thead>
           <tr>
             <th scope="col"><span class="sr">Qué incluye</span></th>
-            <th scope="col"><span class="t-name">Arranque</span><span class="t-price">$600.000<small>COP / mes</small></span></th>
-            <th scope="col"><span class="t-name">Crecimiento</span><span class="t-price">$1.300.000<small>COP / mes</small></span></th>
-            <th scope="col" class="feat"><span class="t-tag">Más elegido</span><span class="t-name">Integral</span><span class="t-price">$2.300.000<small>COP / mes</small></span></th>
-            <th scope="col"><span class="t-name">Transformación</span><span class="t-price"><small class="t-desde">Desde</small>$4.000.000<small>COP · pago único<br>+ Integral aparte</small></span></th>
+            <th scope="col"><span class="t-name">Arranque</span></th>
+            <th scope="col"><span class="t-name">Crecimiento</span></th>
+            <th scope="col" class="feat"><span class="t-tag">Más elegido</span><span class="t-name">Integral</span></th>
+            <th scope="col"><span class="t-name">Transformación</span></th>
           </tr>
         </thead>
         <tbody>
@@ -1206,8 +1246,6 @@
         <tr><th scope="row">Creación de CRM</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>ya incluido en el Integral</small></td></tr>
         <tr><th scope="row">Automatización del CRM</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr><th scope="row">App a medida, en celular y computador</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
-        <tr class="grupo"><th colspan="5" scope="colgroup">Para empezar hoy</th></tr>
-        <tr><th scope="row">Anticipo inicial (50%)</th><td>$300.000</td><td>$650.000</td><td class="feat">$1.150.000</td><td>Según cotización</td></tr>
         <tr class="fila-cta"><th scope="row">Elige tu paquete</th><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Arranque" data-goatcounter-click="cta-tabla-arranque" data-goatcounter-title="Tabla: Arranque">Elegir</a></td><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Crecimiento" data-goatcounter-click="cta-tabla-crecimiento" data-goatcounter-title="Tabla: Crecimiento">Elegir</a></td><td class="feat"><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Integral" data-goatcounter-click="cta-tabla-integral" data-goatcounter-title="Tabla: Integral">Elegir</a></td><td><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Transformación" data-goatcounter-click="cta-tabla-transformacion" data-goatcounter-title="Tabla: Transformación">Elegir</a></td></tr>
         </tbody>
       </table>
@@ -1366,6 +1404,52 @@
       fab.classList.toggle('fab-hide', visible.size > 0);
     });
     document.querySelectorAll('.hero-cta, .diagnostico .btn, .cta').forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    if (!root.classList.contains('js') || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var targets = [
+      '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.ruta-note',
+      '.capacidades .cap-head', '.cap-item', '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
+      '.pk-head', '.card', '.comparar-head', '.tabla-wrap', '.alacarte-head', '.alacarte-row',
+      '.proceso .eyebrow', '.proceso h2', '.paso', '.faq .eyebrow', '.faq h2', '.cta .wrap > *'
+    ].join(',');
+
+    // Cada bloque aparece una sola vez, con un pequeño escalón entre los que entran juntos.
+    var io = new IntersectionObserver(function (entries) {
+      var n = 0;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        io.unobserve(el);
+        el.style.transitionDelay = Math.min(n++, 5) * 60 + 'ms';
+        el.classList.add('in');
+        setTimeout(function () {
+          el.classList.remove('reveal', 'in');
+          el.style.transitionDelay = '';
+        }, 1200);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll(targets).forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+
+    // Las casillas del feed "con estrategia" y los patrones se van llenando una a una.
+    var gio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('on');
+        gio.unobserve(e.target);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.comp-col.con .feed-grid, .patron-grid').forEach(function (g) {
+      g.classList.add('stagger');
+      Array.prototype.forEach.call(g.children, function (span, i) { span.style.animationDelay = (i * 50) + 'ms'; });
+      gio.observe(g);
+    });
   })();
 </script>
 
