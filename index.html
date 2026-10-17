@@ -591,45 +591,6 @@
     .tabla th, .tabla td { padding: 10px 8px; }
   }
 
-  /* Servicios a la carta */
-  .alacarte {
-    padding: clamp(32px, 5vw, 48px) 0;
-    border-top: 1px solid var(--line);
-  }
-  .alacarte-head { max-width: 60ch; margin-bottom: 22px; }
-  .alacarte-head h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 12px;
-    letter-spacing: -0.01em;
-  }
-  .alacarte-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
-  .alacarte-list { border-top: 1px solid var(--line); }
-  .alacarte-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .alacarte-row .name { font-size: 0.95rem; font-weight: 500; }
-  .alacarte-row .price-tag {
-    font-family: "IBM Plex Mono", monospace;
-    font-variant-numeric: tabular-nums;
-    font-size: 0.88rem;
-    color: var(--accent-2-text);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .alacarte-note {
-    margin-top: 20px;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-  }
-
   /* FAQ */
   .faq {
     padding: clamp(32px, 5vw, 48px) 0;
@@ -977,8 +938,8 @@
       <div class="etapa">
         <div class="etapa-num">Etapa 1</div>
         <h3>Ordenar la base</h3>
-        <p>Definimos qué comunicar, a quién y con qué intención: estrategia, calendario y, si lo necesitas, una identidad visual profesional.</p>
-        <div class="etapa-pack"><strong>Encajan:</strong> Arranque · Identidad de marca · Acompañamiento</div>
+        <p>Definimos qué comunicar, a quién y con qué intención: estrategia y calendario de contenido.</p>
+        <div class="etapa-pack"><strong>Encaja:</strong> Arranque</div>
       </div>
       <div class="etapa">
         <div class="etapa-num">Etapa 2</div>
@@ -1294,27 +1255,6 @@
   </div>
 </section>
 
-<section class="alacarte">
-  <div class="wrap">
-    <div class="alacarte-head">
-      <div class="eyebrow">¿No necesitas un paquete completo?</div>
-      <h2>Servicios a la carta</h2>
-      <p>Estos servicios también se contratan sueltos, por proyecto o por mes.</p>
-    </div>
-    <div class="alacarte-list">
-      <div class="alacarte-row"><span class="name">Contenido suelto — 1 reel + 1 carrusel + 2 historias</span><span class="price-tag">Desde $180.000</span></div>
-      <div class="alacarte-row"><span class="name">Propuesta de estrategia para redes sociales</span><span class="price-tag">Desde $150.000</span></div>
-      <div class="alacarte-row"><span class="name">Gestión de Meta Ads (mensual, pauta aparte)</span><span class="price-tag">Desde $300.000 /mes</span></div>
-      <div class="alacarte-row"><span class="name">Creación de pautas por objetivo (campaña puntual)</span><span class="price-tag">Desde $300.000</span></div>
-      <div class="alacarte-row"><span class="name">Acompañamiento mensual: reunión semanal y capacitación para que produzcas tu contenido</span><span class="price-tag">Desde $500.000 /mes</span></div>
-      <div class="alacarte-row"><span class="name">Identidad de marca: logo, paleta, tipografía y manual</span><span class="price-tag">Desde $1.200.000</span></div>
-      <div class="alacarte-row"><span class="name">Configuración de WhatsApp Business</span><span class="price-tag">Desde $100.000</span></div>
-      <div class="alacarte-row"><span class="name">Creación de CRM</span><span class="price-tag">Desde $600.000</span></div>
-      <div class="alacarte-row"><span class="name">Automatización de un CRM existente</span><span class="price-tag">Desde $600.000</span></div>
-    </div>
-    <p class="alacarte-note">Precios en COP, sujetos al alcance real de cada caso. Si terminas contratando 2 o más servicios de forma recurrente, sale más económico pasarte a un paquete.</p>
-  </div>
-</section>
 
 <section class="proceso">
   <div class="wrap">
@@ -1373,10 +1313,6 @@
     <details class="faq-item">
       <summary>¿Necesito tener ya redes sociales o WhatsApp Business creados?</summary>
       <p>No es necesario. Si no los tienes, los creamos y configuramos como parte del arranque.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Y si prefiero producir yo mismo el contenido?</summary>
-      <p>Para eso existe el acompañamiento mensual: nos reunimos cada semana para definir qué comunicar, revisar lo que grabas y mejorarlo, y te capacitamos en lo que necesites, como grabación, reels o historias. Así ganas autonomía y no dependes de una agencia.</p>
     </details>
     <details class="faq-item">
       <summary>¿Cuándo conviene empezar con pauta?</summary>
@@ -1460,7 +1396,7 @@
     var targets = [
       '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.ruta-note',
       '.capacidades .cap-head', '.cap-item', '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
-      '.pk-head', '.card', '.comparar-head', '.tabla-wrap', '.alacarte-head', '.alacarte-row',
+      '.pk-head', '.card', '.comparar-head', '.tabla-wrap',
       '.proceso .eyebrow', '.proceso h2', '.paso', '.faq .eyebrow', '.faq h2', '.cta .wrap > *'
     ].join(',');
 
