@@ -786,6 +786,7 @@
   .diag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
   .diag-list li { font-size: 0.92rem; line-height: 1.4; padding-left: 18px; position: relative; }
   .diag-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .diag-btns { display: flex; gap: 12px; flex-wrap: wrap; }
   .diag-side small { color: var(--ink-soft); font-size: 0.82rem; }
 
   /* Footer CTA */
@@ -867,7 +868,38 @@
     .card:hover { transform: none; }
     .faq-item::details-content { transition: opacity 150ms ease; }
   }
+  /* Más movimiento, pensado para celular */
+  :root { --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); }
+  .pk-head .pauta-aviso { margin-top: 14px; padding: 10px 14px; background: var(--accent-tint); color: var(--ink); font-size: 0.9rem; }
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60;
+    background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+  }
+  @keyframes progress { to { transform: scaleX(1); } }
+  @supports (animation-timeline: scroll()) {
+    .progress { animation: progress linear both; animation-timeline: scroll(root block); }
+  }
+  .count { position: relative; display: inline-block; }
+  .count .ghost { visibility: hidden; }
+  .count .live { position: absolute; left: 0; top: 0; white-space: nowrap; }
+  .card.featured::after { content: ""; position: absolute; inset: -1px; border: 2px solid var(--accent); opacity: 0; pointer-events: none; }
+  .card.featured.ping::after { animation: ping 900ms var(--ease-out) 1 both; }
+  @keyframes ping { from { opacity: 0.7; transform: scale(1); } to { opacity: 0; transform: scale(1.05); } }
+  .js .reveal:not(.in) h2, .js h2.reveal:not(.in) { clip-path: inset(0 0 100% 0); }
+  .js .reveal.in h2, .js h2.reveal.in { clip-path: inset(0 0 0 0); transition: clip-path 720ms var(--ease-in-out) 140ms; }
+  .js h2.reveal.in { transition: opacity 560ms var(--ease-out), transform 560ms var(--ease-out), clip-path 720ms var(--ease-in-out) 140ms; }
+  @media (prefers-reduced-motion: reduce) { .progress { display: none; } }
+
+  /* Celular: botones principales a todo el ancho, fáciles de tocar con el pulgar */
+  @media (max-width: 560px) {
+    .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
+    .diag-side { align-items: stretch; }
+    .diag-btns { flex-direction: column; }
+    .diag-btns .btn { justify-content: center; }
+  }
 </style>
+
+<div class="progress" aria-hidden="true"></div>
 
 <header class="hero">
   <div class="wrap">
@@ -910,7 +942,7 @@
     <div>
       <div class="eyebrow">Diagnóstico gratis</div>
       <h2>Empieza sin pagar: te decimos qué paquete te conviene</h2>
-      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso.</p>
+      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso. Lo hacemos por WhatsApp o en una videollamada por Meet.</p>
     </div>
     <div class="diag-side">
       <ul class="diag-list">
@@ -919,10 +951,16 @@
         <li>Te decimos en qué etapa estás y qué paquete encaja</li>
         <li>Definimos cuánto conviene invertir en pauta</li>
       </ul>
-      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Pedir mi diagnóstico gratis
-      </a>
+      <div class="diag-btns">
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Pedir mi diagnóstico gratis
+        </a>
+        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20agendar%20una%20videollamada%20por%20Meet%20para%20mi%20diagn%C3%B3stico%20gratis.%20%C2%BFQu%C3%A9%20horarios%20tienes%20disponibles%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-meet" data-goatcounter-title="Diagnóstico: llamada por Meet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
+          Pedir llamada por Meet
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1089,6 +1127,7 @@
       <div class="eyebrow">Paquetes</div>
       <h2>Cuatro niveles, un mismo equipo</h2>
       <p>Cada nivel suma más contenido y más servicios que el anterior. Empiezas donde tu negocio está hoy y subes de nivel cuando estés listo. ¿Prefieres verlos lado a lado? <a href="#comparar">Mira la tabla comparativa</a>.</p>
+      <p class="pauta-aviso"><strong>Importante:</strong> el presupuesto de pauta lo paga siempre el cliente, directamente a Meta. Los paquetes incluyen la gestión, no la inversión.</p>
     </div>
 
     <div class="pk-grid">
@@ -1164,7 +1203,7 @@
           <li class="item">Sesión mensual de ideas de contenido</li>
           <li class="item">Informe estadístico + feedback</li>
           <li class="item">Meta Ads + pautas por objetivo</li>
-          <li class="item sub">Presupuesto de pauta incluido en el precio</li>
+          <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
           <li class="item">WhatsApp Business + estrategia</li>
           <li class="item">Creación de CRM</li>
         </ul>
@@ -1172,10 +1211,10 @@
           <span class="gift-label">Regalos incluidos</span>
           <ul class="gift-list">
             <li>Sesión de estrategia trimestral gratis</li>
-            <li>Presupuesto de prueba de pauta sin cobro de gestión el primer mes</li>
+            <li>Campaña de prueba en el primer mes</li>
           </ul>
         </div>
-        <div class="note">Pagas un solo valor — nosotros administramos y escalamos la inversión en pauta. Solo te entregamos resultados.</div>
+        <div class="note">Nosotros diseñamos, administramos y escalamos tus campañas; la inversión en pauta la pagas tú directamente a Meta.</div>
         <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-integral" data-goatcounter-title="Paquete Integral">Quiero este paquete</a>
       </div>
 
@@ -1240,7 +1279,7 @@
         <tr><th scope="row">Informe estadístico y feedback</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr class="grupo"><th colspan="5" scope="colgroup">Publicidad en Meta Ads</th></tr>
         <tr><th scope="row">Gestión de pauta digital</th><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td></tr>
-        <tr><th scope="row">Presupuesto de pauta</th><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td class="feat">Incluido en el precio</td><td>Incluido en el Integral</td></tr>
+        <tr><th scope="row">Presupuesto de pauta</th><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td class="feat">Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td></tr>
         <tr class="grupo"><th colspan="5" scope="colgroup">Complementos</th></tr>
         <tr><th scope="row">Manejo de WhatsApp Business</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr><th scope="row">Creación de CRM</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>ya incluido en el Integral</small></td></tr>
@@ -1257,8 +1296,8 @@
 <section class="alacarte">
   <div class="wrap">
     <div class="alacarte-head">
-      <div class="eyebrow">Servicios a la carta</div>
-      <h2>¿No necesitas un paquete completo?</h2>
+      <div class="eyebrow">¿No necesitas un paquete completo?</div>
+      <h2>Servicios a la carta</h2>
       <p>Estos servicios también se contratan sueltos, por proyecto o por mes.</p>
     </div>
     <div class="alacarte-list">
@@ -1316,7 +1355,7 @@
     </details>
     <details class="faq-item">
       <summary>¿Quién paga la pauta publicitaria (Meta Ads)?</summary>
-      <p>En Arranque y Crecimiento, tú pagas directamente tu presupuesto de pauta a Meta y nosotros la gestionamos. El monto depende de tu negocio, tu sector y tu objetivo: lo definimos juntos en el diagnóstico, antes de que inviertas. En Integral y Transformación, la inversión en pauta ya está incluida en el precio — nosotros la administramos y la escalamos por nuestra cuenta, y solo te entregamos resultados.</p>
+      <p>En todos los paquetes, el presupuesto de pauta lo pagas tú directamente a Meta; nosotros nos encargamos de gestionarla: crear las campañas, optimizarlas y escalarlas. El monto depende de tu negocio, tu sector y tu objetivo, y lo definimos juntos en el diagnóstico, antes de que inviertas.</p>
     </details>
     <details class="faq-item">
       <summary>¿Qué pasa si no me gusta una pieza de contenido?</summary>
@@ -1450,6 +1489,94 @@
       Array.prototype.forEach.call(g.children, function (span, i) { span.style.animationDelay = (i * 50) + 'ms'; });
       gio.observe(g);
     });
+  })();
+</script>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    if (!root.classList.contains('js')) return;
+    var bar = document.querySelector('.progress');
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Barra de avance arriba: si el navegador no la anima solo, se actualiza al desplazarse.
+    if (bar && !(window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()'))) {
+      var pending = false;
+      var update = function () {
+        pending = false;
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')';
+      };
+      window.addEventListener('scroll', function () {
+        if (!pending) { pending = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      update();
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+
+    // Los precios cuentan hasta su valor cuando entran en pantalla. El ancho queda reservado para que nada salte.
+    var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); };
+    var counters = [];
+    document.querySelectorAll('.card .price, .card-start strong').forEach(function (el) {
+      var node = Array.prototype.find.call(el.childNodes, function (n) { return n.nodeType === 3 && /\$\s?\d/.test(n.textContent); });
+      var m = node && node.textContent.match(/^([\s\S]*?)(\$\s?[\d.]+)([\s\S]*)$/);
+      if (!m) return;
+      var finalText = m[2];
+      var wrap = document.createElement('span');
+      wrap.className = 'count';
+      wrap.setAttribute('aria-hidden', 'true');
+      var ghost = document.createElement('span');
+      ghost.className = 'ghost';
+      ghost.textContent = finalText;
+      var live = document.createElement('span');
+      live.className = 'live';
+      live.textContent = '$0';
+      wrap.appendChild(ghost);
+      wrap.appendChild(live);
+      var sr = document.createElement('span');
+      sr.className = 'sr';
+      sr.textContent = finalText;
+      var frag = document.createDocumentFragment();
+      if (m[1]) frag.appendChild(document.createTextNode(m[1]));
+      frag.appendChild(wrap);
+      frag.appendChild(sr);
+      if (m[3]) frag.appendChild(document.createTextNode(m[3]));
+      el.replaceChild(frag, node);
+      el.__count = { live: live, to: parseInt(finalText.replace(/\D/g, ''), 10) };
+      counters.push(el);
+    });
+    var run = function (el) {
+      var c = el.__count, start = null, dur = 900;
+      var step = function (t) {
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        c.live.textContent = '$' + fmt(Math.round(c.to * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        setTimeout(function () { run(e.target); }, 180);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cio.observe(el); });
+
+    // El paquete más elegido da un solo pulso al aparecer.
+    var feat = document.querySelector('.card.featured');
+    if (feat) {
+      var pio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          pio.unobserve(e.target);
+          setTimeout(function () { e.target.classList.add('ping'); }, 700);
+        });
+      }, { threshold: 0.5 });
+      pio.observe(feat);
+    }
   })();
 </script>
 
