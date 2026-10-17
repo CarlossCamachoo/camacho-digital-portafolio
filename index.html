@@ -473,6 +473,39 @@
   .card.flagship .gift-label,
   .card.flagship .gift-list li { color: var(--accent-2); }
 
+  /* Ruta */
+  .ruta { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
+  .ruta-head { max-width: 60ch; margin-bottom: 22px; }
+  .ruta-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .ruta-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+  .ruta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .ruta-grid { grid-template-columns: 1fr; } }
+  .etapa {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .etapa-num { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .etapa h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; }
+  .etapa p { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 0.92rem; }
+  .etapa-pack { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
+  .etapa-pack strong { color: var(--ink); font-weight: 600; }
+  .ruta-note { margin: 18px 0 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
+  .ruta-note a { color: var(--accent); }
+  .card-start { margin: -8px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
+  .card-start strong { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+  .card.flagship .card-start, .card.flagship .card-start strong { color: var(--on-deep); }
+
   /* Tabla comparativa */
   .comparar {
     padding: clamp(32px, 5vw, 48px) 0;
@@ -800,8 +833,8 @@
       <div class="mark">MA<span>·</span>Creative</div>
     </div>
     <div class="eyebrow">Marketing digital &amp; automatización</div>
-    <h1>Tu negocio, gestionado como <em>un solo sistema.</em></h1>
-    <p class="hero-sub">Redes sociales, pauta en Meta, WhatsApp Business, CRM y software a medida — reunidos en cuatro paquetes pensados para crecer con tu negocio, no en contra de tu presupuesto.</p>
+    <h1>Redes y WhatsApp que <em>traen clientes.</em></h1>
+    <p class="hero-sub">Ordenamos tu marca, publicamos con constancia y gestionamos tu pauta y tu CRM. Cuatro paquetes con precio claro, y empiezas con un diagnóstico gratis.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-hero-diagnostico" data-goatcounter-title="Hero: diagnóstico gratis">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -841,13 +874,45 @@
       <ul class="diag-list">
         <li>Revisamos tus redes actuales</li>
         <li>Miramos qué hace tu competencia</li>
-        <li>Te recomendamos paquete y presupuesto de pauta</li>
+        <li>Te decimos en qué etapa estás y qué paquete encaja</li>
+        <li>Definimos cuánto conviene invertir en pauta</li>
       </ul>
       <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         Pedir mi diagnóstico gratis
       </a>
     </div>
+  </div>
+</section>
+
+<section class="ruta" id="ruta">
+  <div class="wrap">
+    <div class="ruta-head">
+      <div class="eyebrow">La ruta</div>
+      <h2>Primero la base, después el crecimiento</h2>
+      <p>Invertir en pauta antes de ordenar la marca y el contenido suele ser gastar de más. Por eso trabajamos por etapas, y el diagnóstico define en cuál estás hoy.</p>
+    </div>
+    <div class="ruta-grid">
+      <div class="etapa">
+        <div class="etapa-num">Etapa 1</div>
+        <h3>Ordenar la base</h3>
+        <p>Definimos qué comunicar, a quién y con qué intención: estrategia, calendario y, si lo necesitas, una identidad visual profesional.</p>
+        <div class="etapa-pack"><strong>Encajan:</strong> Arranque · Identidad de marca · Acompañamiento</div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-num">Etapa 2</div>
+        <h3>Publicar con constancia</h3>
+        <p>Contenido editado todos los meses, publicado y medido, para que tu marca se vea y se sienta profesional.</p>
+        <div class="etapa-pack"><strong>Encaja:</strong> Crecimiento</div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-num">Etapa 3</div>
+        <h3>Acelerar</h3>
+        <p>Pauta en Meta, WhatsApp Business, CRM y automatizaciones para convertir esa atención en clientes.</p>
+        <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
+      </div>
+    </div>
+    <p class="ruta-note">¿Ya puedes invertir en pauta? Si el diagnóstico lo confirma, la activamos desde el primer paquete. ¿No sabes en qué etapa estás? <a href="#diagnostico">Pide tu diagnóstico gratis</a>.</p>
   </div>
 </section>
 
@@ -991,6 +1056,7 @@
           <div class="tier-name">Contenido base</div>
         </div>
         <div class="price">$600.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$300.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">2 reels editados</li>
           <li class="item">2 carruseles</li>
@@ -1018,12 +1084,15 @@
           <div class="tier-name">Contenido + presencia</div>
         </div>
         <div class="price">$1.300.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$650.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">4 reels · 4 carruseles · 6 historias</li>
           <li class="item">Calendario mensual</li>
           <li class="item sub">Nosotros programamos y publicamos</li>
           <li class="item">Manejo de redes sociales</li>
           <li class="item">Propuesta de estrategia para redes</li>
+          <li class="item">Sesión mensual de ideas de contenido</li>
+          <li class="item sub">Convertimos lo que ya sabes de tu negocio en contenido</li>
           <li class="item">Gestión de pauta digital</li>
           <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
         </ul>
@@ -1046,10 +1115,12 @@
           <div class="tier-name">Redes, pauta y CRM</div>
         </div>
         <div class="price">$2.300.000<span class="per">COP / mes</span></div>
+        <p class="card-start">Para empezar hoy: <strong>$1.150.000</strong> (50% de anticipo)</p>
         <ul class="items">
           <li class="item">6 reels · 6 carruseles · 12 historias</li>
           <li class="item">Calendario mensual + edición completa</li>
           <li class="item">Informe estadístico + feedback</li>
+          <li class="item">Sesión mensual de ideas de contenido</li>
           <li class="item">WhatsApp Business + estrategia</li>
           <li class="item">Meta Ads + pautas por objetivo</li>
           <li class="item sub">Presupuesto de pauta incluido en el precio</li>
@@ -1072,6 +1143,7 @@
           <div class="tier-name">Integral + software</div>
         </div>
         <div class="price">Desde $4.000.000<span class="per">COP · pago único</span></div>
+        <p class="card-start">Abono inicial: se acuerda en la cotización</p>
         <ul class="items">
           <li class="item">App a medida: clientes, inventario, facturas y pedidos</li>
           <li class="item">Disponible en celular y computador</li>
@@ -1120,6 +1192,7 @@
         <tr><th scope="row">Carruseles</th><td>2</td><td>4</td><td class="feat">6</td><td>6</td></tr>
         <tr><th scope="row">Historias</th><td>4</td><td>6</td><td class="feat">12</td><td>12</td></tr>
         <tr><th scope="row">Calendario de contenido mensual</th><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
+        <tr><th scope="row">Sesión mensual de ideas de contenido</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr><th scope="row">Manejo y publicación de tus redes</th><td>Tú publicas<small>te entregamos el material</small></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr><th scope="row">Informe estadístico y feedback</th><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true">—</span><span class="sr">No incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td></tr>
         <tr class="grupo"><th colspan="5" scope="colgroup">Servicios</th></tr>
@@ -1131,6 +1204,8 @@
         <tr class="grupo"><th colspan="5" scope="colgroup">Pauta en Meta Ads</th></tr>
         <tr><th scope="row">Gestión de pauta digital</th><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span></td><td class="feat"><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td><td><span class="yes" aria-hidden="true"></span><span class="sr">Incluido</span><small>con pautas por objetivo</small></td></tr>
         <tr><th scope="row">Presupuesto de pauta</th><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td>Lo pone el cliente<small>se define en el diagnóstico</small></td><td class="feat">Incluido en el precio</td><td>Incluido en el Integral</td></tr>
+        <tr class="grupo"><th colspan="5" scope="colgroup">Para empezar hoy</th></tr>
+        <tr><th scope="row">Anticipo inicial (50%)</th><td>$300.000</td><td>$650.000</td><td class="feat">$1.150.000</td><td>Según cotización</td></tr>
         <tr class="fila-cta"><th scope="row">Elige tu paquete</th><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Arranque" data-goatcounter-click="cta-tabla-arranque" data-goatcounter-title="Tabla: Arranque">Elegir</a></td><td><a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Crecimiento" data-goatcounter-click="cta-tabla-crecimiento" data-goatcounter-title="Tabla: Crecimiento">Elegir</a></td><td class="feat"><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Integral" data-goatcounter-click="cta-tabla-integral" data-goatcounter-title="Tabla: Integral">Elegir</a></td><td><a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" aria-label="Elegir paquete Transformación" data-goatcounter-click="cta-tabla-transformacion" data-goatcounter-title="Tabla: Transformación">Elegir</a></td></tr>
         </tbody>
       </table>
@@ -1144,7 +1219,7 @@
     <div class="alacarte-head">
       <div class="eyebrow">Servicios a la carta</div>
       <h2>¿No necesitas un paquete completo?</h2>
-      <p>Estos mismos servicios también se contratan sueltos, por proyecto o por mes.</p>
+      <p>Estos servicios también se contratan sueltos, por proyecto o por mes.</p>
     </div>
     <div class="alacarte-list">
       <div class="alacarte-row"><span class="name">Propuesta de estrategia para redes sociales</span><span class="price-tag">Desde $150.000</span></div>
@@ -1154,6 +1229,8 @@
       <div class="alacarte-row"><span class="name">Contenido suelto — 1 reel + 1 carrusel + 2 historias</span><span class="price-tag">Desde $180.000</span></div>
       <div class="alacarte-row"><span class="name">Creación de CRM</span><span class="price-tag">Desde $600.000</span></div>
       <div class="alacarte-row"><span class="name">Automatización de un CRM existente</span><span class="price-tag">Desde $600.000</span></div>
+      <div class="alacarte-row"><span class="name">Identidad de marca: logo, paleta, tipografía y manual</span><span class="price-tag">Desde $1.200.000</span></div>
+      <div class="alacarte-row"><span class="name">Acompañamiento mensual: reunión semanal y capacitación para que produzcas tu contenido</span><span class="price-tag">Desde $500.000 /mes</span></div>
     </div>
     <p class="alacarte-note">Precios en COP, sujetos al alcance real de cada caso. Si terminas contratando 2 o más servicios de forma recurrente, sale más económico pasarte a un paquete.</p>
   </div>
@@ -1167,7 +1244,7 @@
       <div class="paso">
         <div class="paso-num">01</div>
         <div class="paso-title">Diagnóstico gratis</div>
-        <div class="paso-sub">Revisamos tu negocio, tu competencia y el estado actual de tus redes.</div>
+        <div class="paso-sub">Revisamos tu negocio, tu competencia y tus redes, y te decimos en qué etapa de la ruta estás.</div>
       </div>
       <div class="paso">
         <div class="paso-num">02</div>
@@ -1216,6 +1293,14 @@
     <details class="faq-item">
       <summary>¿Necesito tener ya redes sociales o WhatsApp Business creados?</summary>
       <p>No es necesario. Si no los tienes, los creamos y configuramos como parte del arranque.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Y si prefiero producir yo mismo el contenido?</summary>
+      <p>Para eso existe el acompañamiento mensual: nos reunimos cada semana para definir qué comunicar, revisar lo que grabas y mejorarlo, y te capacitamos en lo que necesites, como grabación, reels o historias. Así ganas autonomía y no dependes de una agencia.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuándo conviene empezar con pauta?</summary>
+      <p>Cuando la marca y el contenido ya están ordenados, la pauta rinde más. En el diagnóstico revisamos tu punto de partida: si ya puedes invertir, la activamos desde el primer paquete; si no, primero ordenamos la base.</p>
     </details>
   </div>
 </section>
