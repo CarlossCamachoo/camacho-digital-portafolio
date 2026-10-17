@@ -94,23 +94,6 @@
     margin: 0;
   }
 
-  /* Valores */
-  .valores {
-    padding: clamp(20px, 3vw, 26px) 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .valores .wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  @media (max-width: 700px) {
-    .valores .wrap { grid-template-columns: 1fr; gap: 18px; }
-  }
-  .valor { display: flex; flex-direction: column; gap: 4px; }
-  .valor .valor-title { font-weight: 600; font-size: 0.95rem; }
-  .valor .valor-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
-
   /* Íconos */
   .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
@@ -183,7 +166,7 @@
   .resultado-note { margin: 18px 0 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
 
   /* Paquetes */
-  .paquetes { padding: clamp(32px, 5vw, 48px) 0 clamp(16px, 3vw, 28px); }
+  .paquetes { padding: clamp(32px, 5vw, 48px) 0 clamp(48px, 7vw, 72px); }
   .pk-head { margin-bottom: 28px; max-width: 60ch; }
   .pk-head h2 {
     font-family: "Fraunces", serif;
@@ -364,55 +347,10 @@
   /* Texto solo para lectores de pantalla */
   .sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-  /* FAQ */
-  .faq {
-    padding: clamp(32px, 5vw, 48px) 0;
-    border-top: 1px solid var(--line);
-  }
-  .faq h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 10px 0 22px;
-    letter-spacing: -0.01em;
-  }
-  .faq-item {
-    border-bottom: 1px solid var(--line);
-  }
-  .faq-item summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 18px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    font-weight: 500;
-    font-size: 0.98rem;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: "+";
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 1.1rem;
-    color: var(--accent);
-    flex-shrink: 0;
-    transition: transform 0.15s ease;
-  }
-  .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .faq-item p {
-    margin: 0 0 20px;
-    max-width: 62ch;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-  }
-
   /* Condiciones */
   .condiciones {
     padding: clamp(20px, 3vw, 26px) 0;
-    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
   .condiciones-label {
     font-family: "IBM Plex Mono", monospace;
@@ -479,16 +417,6 @@
   .card .btn { width: 100%; justify-content: center; text-align: center; font-size: 0.76rem; letter-spacing: 0; padding: 14px 8px; }
   .card.flagship .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
   .card.flagship .btn:focus-visible { outline-color: var(--on-deep); }
-  .fab {
-    position: fixed;
-    right: 16px;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    z-index: 50;
-    box-shadow: 0 6px 18px rgba(31,48,54,0.22);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .fab.fab-hide { opacity: 0; transform: translateY(8px); pointer-events: none; }
-  @media (prefers-reduced-motion: reduce) { .fab { transition: none; } }
 
   /* Diagnóstico gratis */
   .diagnostico {
@@ -522,22 +450,6 @@
   .diag-side small { color: var(--ink-soft); font-size: 0.82rem; }
 
   /* Footer CTA */
-  .cta {
-    margin-top: clamp(36px, 5vw, 56px);
-    background: var(--deep);
-    color: var(--on-deep);
-  }
-  .cta .wrap { padding: clamp(44px, 8vw, 76px) clamp(20px, 5vw, 56px); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
-  .cta h3 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
-    margin: 0;
-    max-width: 18ch;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
     display: inline-flex;
     align-items: center;
@@ -556,9 +468,6 @@
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .btn-primary { background: var(--accent); color: var(--accent-ink); }
   .btn-secondary { background: transparent; color: var(--ink); }
-  .cta .btn-secondary { color: var(--on-deep); border-color: rgba(238,246,243,0.55); }
-  .cta .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
-  .cta .btn:focus-visible { outline-color: var(--on-deep); }
   .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
   /* Movimiento: solo opacity y transform, curvas fuertes; se desactiva con "reducir movimiento" */
   :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); interpolate-size: allow-keywords; }
@@ -583,20 +492,12 @@
     .card.featured:hover { box-shadow: 0 0 0 1px var(--accent), 0 12px 26px rgba(31,48,54,0.12); }
   }
 
-  .faq-item::details-content {
-    height: 0;
-    overflow: clip;
-    opacity: 0;
-    transition: height 220ms var(--ease-out), opacity 220ms var(--ease-out), content-visibility 220ms allow-discrete;
-  }
-  .faq-item[open]::details-content { height: auto; opacity: 1; }
 
   @media (prefers-reduced-motion: reduce) {
     .js .h-in { animation-name: fade-in; animation-duration: 300ms; }
     .btn:active { transform: none; }
     .card:hover { transform: none; }
-    .faq-item::details-content { transition: opacity 150ms ease; }
-  }
+    }
   /* Más movimiento, pensado para celular */
   :root { --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); }
   .pk-head .pauta-aviso { margin-top: 14px; padding: 10px 14px; background: var(--accent-tint); color: var(--ink); font-size: 0.9rem; }
@@ -621,9 +522,8 @@
 
   /* Celular: botones principales a todo el ancho, fáciles de tocar con el pulgar */
   @media (max-width: 560px) {
-    .hero-cta .btn, .cta-buttons .btn { flex: 1 1 100%; justify-content: center; }
+    .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
     .mapa-titulo .btn { width: 100%; justify-content: center; }
-    .cta-buttons { width: 100%; }
     .diag-side { align-items: stretch; }
     .diag-btns { flex-direction: column; }
     .diag-btns .btn { justify-content: center; }
@@ -668,19 +568,218 @@
   </div>
 </header>
 
-<section class="valores">
+<section class="resultado" id="resultado">
   <div class="wrap">
-    <div class="valor">
-      <div class="valor-title">Trato directo, sin intermediarios</div>
-      <div class="valor-sub">Hablas con quien hace el trabajo, desde el diagnóstico hasta el reporte mensual — no con una cuenta rotativa.</div>
+    <div class="resultado-head">
+      <div class="eyebrow">Después de trabajar con nosotros</div>
+      <h2>Lo que te queda</h2>
+      <p>No solo contenido publicado: también criterio, método y una base para seguir creciendo.</p>
     </div>
-    <div class="valor">
-      <div class="valor-title">Paquetes que escalan contigo</div>
-      <div class="valor-sub">Empiezas en el nivel que tu negocio necesita hoy y subes de paquete cuando el crecimiento lo pida.</div>
+    <div class="tiles">
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg></span><h3>Conocimiento nuevo</h3><p>Entiendes qué contenido funciona en tu negocio y por qué.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></span><h3>Otra forma de pensar</h3><p>Dejas de publicar por publicar y planeas con un objetivo.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-userplus"/></svg></span><h3>Clientes nuevos</h3><p>Más personas que te encuentran, te siguen y te escriben.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span><h3>Una marca reconocible</h3><p>Un feed ordenado que se ve profesional y se recuerda.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg></span><h3>Un método que sigue contigo</h3><p>Un calendario y una forma de trabajar que puedes retomar.</p></div>
+      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Datos para decidir</h3><p>Sabes qué números mirar y dónde conviene invertir.</p></div>
     </div>
-    <div class="valor">
-      <div class="valor-title">Contenido y pauta, un solo plan</div>
-      <div class="valor-sub">Lo que publicas y lo que pautas responden al mismo plan, no a ideas sueltas.</div>
+    <p class="resultado-note">Los resultados dependen de tu negocio, tu sector y tu inversión en pauta. Por eso medimos y ajustamos cada mes.</p>
+  </div>
+</section>
+
+<section class="ruta" id="ruta">
+  <div class="wrap">
+    <div class="ruta-head">
+      <div class="eyebrow">La ruta</div>
+      <h2>Primero la base, después el crecimiento</h2>
+    </div>
+    <div class="ruta-grid">
+      <div class="etapa">
+        <div class="etapa-num">Etapa 1</div>
+        <h3>Ordenar la base</h3>
+        <p>Definimos qué comunicar, a quién y con qué intención: estrategia y calendario de contenido.</p>
+        <div class="etapa-pack"><strong>Encaja:</strong> Arranque</div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-num">Etapa 2</div>
+        <h3>Atraer con contenido</h3>
+        <p>Reels, carruseles e historias editados cada mes, publicados y medidos, para que te encuentren y te recuerden.</p>
+        <div class="etapa-pack"><strong>Encaja:</strong> Crecimiento</div>
+      </div>
+      <div class="etapa">
+        <div class="etapa-num">Etapa 3</div>
+        <h3>Acelerar con publicidad</h3>
+        <p>Campañas en Meta Ads por objetivo y WhatsApp para atender a quien llega. CRM y automatizaciones cuando tu volumen lo pida.</p>
+        <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mapa" id="mapa">
+  <div class="wrap">
+    <div class="mapa-head">
+      <div class="mapa-titulo">
+        <div>
+          <div class="eyebrow">El mapa del trabajo</div>
+          <h2>Qué hay detrás de cada paquete</h2>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener" data-goatcounter-click="cta-mapa-llamada" data-goatcounter-title="Mapa: agendar llamada por WhatsApp">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>
+          Agendar llamada por WhatsApp
+        </a>
+      </div>
+      <p>De la idea al cliente, en nueve paradas. Las casillas muestran en qué paquetes está cada una.</p>
+      <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
+    </div>
+    <ol class="mapa-ruta">
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg></span>
+        <div class="nodo-txt"><h3>Estrategia</h3><p>Qué decir, a quién y por qué.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+        <div class="nodo-txt"><h3>Calendario</h3><p>Un plan de contenido para todo el mes.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-film"/></svg></span>
+        <div class="nodo-txt"><h3>Contenido</h3><p>Reels, carruseles e historias editados.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
+        <div class="nodo-txt"><h3>Publicación</h3><p>Programamos y publicamos por ti.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
+        <div class="nodo-txt"><h3>Publicidad en Meta</h3><p>Campañas por objetivo, con tu presupuesto.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <div class="nodo-txt"><h3>WhatsApp Business</h3><p>Tu canal listo para atender a quien llega.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Integral, Transformación.</span>
+      </li>
+      <li class="nodo" data-in="a c i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg></span>
+        <div class="nodo-txt"><h3>Medición</h3><p>Informe y feedback de lo que funciona.</p></div>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
+      </li>
+      <li class="nodo sec" data-in="i t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <div class="nodo-txt"><h3>CRM</h3><p>Tus clientes en un solo lugar.</p><span class="nodo-tag">Complemento</span></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Integral, Transformación.</span>
+      </li>
+      <li class="nodo sec" data-in="t">
+        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <div class="nodo-txt"><h3>App a medida</h3><p>Tu negocio en el celular y el computador.</p><span class="nodo-tag">Complemento</span></div>
+        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Transformación.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="semanas" id="semanas">
+  <div class="wrap">
+    <div class="semanas-head">
+      <div class="eyebrow">Semana a semana</div>
+      <h2>Lo que revisamos cada semana</h2>
+    </div>
+    <ul class="chips">
+      <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
+    </ul>
+  </div>
+</section>
+
+<section class="proceso">
+  <div class="wrap">
+    <div class="eyebrow">Cómo trabajamos</div>
+    <h2>De la primera llamada al primer reporte</h2>
+    <div class="proceso-grid">
+      <div class="paso">
+        <div class="paso-num">01</div>
+        <div class="paso-title">Diagnóstico gratis</div>
+        <div class="paso-sub">Revisamos tu negocio, tu competencia y tus redes, y te decimos en qué etapa de la ruta estás.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">02</div>
+        <div class="paso-title">Propuesta</div>
+        <div class="paso-sub">Elegimos juntos el paquete y ajustamos el alcance a tu presupuesto.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">03</div>
+        <div class="paso-title">Ejecución</div>
+        <div class="paso-sub">Producimos, publicamos y gestionamos la pauta según lo acordado.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">04</div>
+        <div class="paso-title">Reporte</div>
+        <div class="paso-sub">Entregamos resultados cada mes y ajustamos la estrategia con datos reales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diagnostico" id="diagnostico">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Diagnóstico gratis</div>
+      <h2>Empieza sin pagar: te decimos qué paquete te conviene</h2>
+      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso. Lo hacemos por WhatsApp o en una videollamada por Meet, en el horario que tú elijas.</p>
+    </div>
+    <div class="diag-side">
+      <ul class="diag-list">
+        <li>Revisamos tus redes actuales</li>
+        <li>Miramos qué hace tu competencia</li>
+        <li>Te decimos en qué etapa estás y qué paquete encaja</li>
+        <li>Definimos cuánto conviene invertir en pauta</li>
+      </ul>
+      <div class="diag-btns">
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Pedir mi diagnóstico gratis
+        </a>
+        <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-meet" data-goatcounter-title="Diagnóstico: agendar llamada por Meet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
+          Agendar llamada por Meet
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="condiciones">
+  <div class="wrap">
+    <span class="condiciones-label">Condiciones de servicio</span>
+    <div class="condiciones-grid">
+      <div class="cond-item">
+        <div class="cond-title">Permanencia</div>
+        <div class="cond-sub">Mínimo 3 meses en los paquetes mensuales.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Forma de pago</div>
+        <div class="cond-sub">50% anticipo al iniciar el mes, 50% contra entrega del contenido del mes.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Métodos aceptados</div>
+        <div class="cond-sub">Nequi/Daviplata, transferencia bancaria, PSE.</div>
+      </div>
+      <div class="cond-item">
+        <div class="cond-title">Tiempos de entrega</div>
+        <div class="cond-sub">Calendario de contenido: primeros 5 días hábiles del mes.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -816,294 +915,6 @@
 </section>
 
 
-<section class="diagnostico" id="diagnostico">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Diagnóstico gratis</div>
-      <h2>Empieza sin pagar: te decimos qué paquete te conviene</h2>
-      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso. Lo hacemos por WhatsApp o en una videollamada por Meet, en el horario que tú elijas.</p>
-    </div>
-    <div class="diag-side">
-      <ul class="diag-list">
-        <li>Revisamos tus redes actuales</li>
-        <li>Miramos qué hace tu competencia</li>
-        <li>Te decimos en qué etapa estás y qué paquete encaja</li>
-        <li>Definimos cuánto conviene invertir en pauta</li>
-      </ul>
-      <div class="diag-btns">
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          Pedir mi diagnóstico gratis
-        </a>
-        <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-meet" data-goatcounter-title="Diagnóstico: agendar llamada por Meet">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
-          Agendar llamada por Meet
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="ruta" id="ruta">
-  <div class="wrap">
-    <div class="ruta-head">
-      <div class="eyebrow">La ruta</div>
-      <h2>Primero la base, después el crecimiento</h2>
-    </div>
-    <div class="ruta-grid">
-      <div class="etapa">
-        <div class="etapa-num">Etapa 1</div>
-        <h3>Ordenar la base</h3>
-        <p>Definimos qué comunicar, a quién y con qué intención: estrategia y calendario de contenido.</p>
-        <div class="etapa-pack"><strong>Encaja:</strong> Arranque</div>
-      </div>
-      <div class="etapa">
-        <div class="etapa-num">Etapa 2</div>
-        <h3>Atraer con contenido</h3>
-        <p>Reels, carruseles e historias editados cada mes, publicados y medidos, para que te encuentren y te recuerden.</p>
-        <div class="etapa-pack"><strong>Encaja:</strong> Crecimiento</div>
-      </div>
-      <div class="etapa">
-        <div class="etapa-num">Etapa 3</div>
-        <h3>Acelerar con publicidad</h3>
-        <p>Campañas en Meta Ads por objetivo y WhatsApp para atender a quien llega. CRM y automatizaciones cuando tu volumen lo pida.</p>
-        <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="mapa" id="mapa">
-  <div class="wrap">
-    <div class="mapa-head">
-      <div class="mapa-titulo">
-        <div>
-          <div class="eyebrow">El mapa del trabajo</div>
-          <h2>Qué hay detrás de cada paquete</h2>
-        </div>
-        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener" data-goatcounter-click="cta-mapa-llamada" data-goatcounter-title="Mapa: agendar llamada por WhatsApp">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>
-          Agendar llamada por WhatsApp
-        </a>
-      </div>
-      <p>De la idea al cliente, en nueve paradas. Las casillas muestran en qué paquetes está cada una.</p>
-      <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
-    </div>
-    <ol class="mapa-ruta">
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg></span>
-        <div class="nodo-txt"><h3>Estrategia</h3><p>Qué decir, a quién y por qué.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
-        <div class="nodo-txt"><h3>Calendario</h3><p>Un plan de contenido para todo el mes.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-film"/></svg></span>
-        <div class="nodo-txt"><h3>Contenido</h3><p>Reels, carruseles e historias editados.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
-        <div class="nodo-txt"><h3>Publicación</h3><p>Programamos y publicamos por ti.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
-        <div class="nodo-txt"><h3>Publicidad en Meta</h3><p>Campañas por objetivo, con tu presupuesto.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg></span>
-        <div class="nodo-txt"><h3>WhatsApp Business</h3><p>Tu canal listo para atender a quien llega.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Integral, Transformación.</span>
-      </li>
-      <li class="nodo" data-in="a c i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg></span>
-        <div class="nodo-txt"><h3>Medición</h3><p>Informe y feedback de lo que funciona.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
-      </li>
-      <li class="nodo sec" data-in="i t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
-        <div class="nodo-txt"><h3>CRM</h3><p>Tus clientes en un solo lugar.</p><span class="nodo-tag">Complemento</span></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Integral, Transformación.</span>
-      </li>
-      <li class="nodo sec" data-in="t">
-        <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
-        <div class="nodo-txt"><h3>App a medida</h3><p>Tu negocio en el celular y el computador.</p><span class="nodo-tag">Complemento</span></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Transformación.</span>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="semanas" id="semanas">
-  <div class="wrap">
-    <div class="semanas-head">
-      <div class="eyebrow">Semana a semana</div>
-      <h2>Lo que revisamos cada semana</h2>
-    </div>
-    <ul class="chips">
-      <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
-    </ul>
-  </div>
-</section>
-
-
-<section class="resultado" id="resultado">
-  <div class="wrap">
-    <div class="resultado-head">
-      <div class="eyebrow">Después de trabajar con nosotros</div>
-      <h2>Lo que te queda</h2>
-      <p>No solo contenido publicado: también criterio, método y una base para seguir creciendo.</p>
-    </div>
-    <div class="tiles">
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg></span><h3>Conocimiento nuevo</h3><p>Entiendes qué contenido funciona en tu negocio y por qué.</p></div>
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></span><h3>Otra forma de pensar</h3><p>Dejas de publicar por publicar y planeas con un objetivo.</p></div>
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-userplus"/></svg></span><h3>Clientes nuevos</h3><p>Más personas que te encuentran, te siguen y te escriben.</p></div>
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg></span><h3>Una marca reconocible</h3><p>Un feed ordenado que se ve profesional y se recuerda.</p></div>
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg></span><h3>Un método que sigue contigo</h3><p>Un calendario y una forma de trabajar que puedes retomar.</p></div>
-      <div class="tile"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Datos para decidir</h3><p>Sabes qué números mirar y dónde conviene invertir.</p></div>
-    </div>
-    <p class="resultado-note">Los resultados dependen de tu negocio, tu sector y tu inversión en pauta. Por eso medimos y ajustamos cada mes.</p>
-  </div>
-</section>
-
-
-<section class="proceso">
-  <div class="wrap">
-    <div class="eyebrow">Cómo trabajamos</div>
-    <h2>De la primera llamada al primer reporte</h2>
-    <div class="proceso-grid">
-      <div class="paso">
-        <div class="paso-num">01</div>
-        <div class="paso-title">Diagnóstico gratis</div>
-        <div class="paso-sub">Revisamos tu negocio, tu competencia y tus redes, y te decimos en qué etapa de la ruta estás.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">02</div>
-        <div class="paso-title">Propuesta</div>
-        <div class="paso-sub">Elegimos juntos el paquete y ajustamos el alcance a tu presupuesto.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">03</div>
-        <div class="paso-title">Ejecución</div>
-        <div class="paso-sub">Producimos, publicamos y gestionamos la pauta según lo acordado.</div>
-      </div>
-      <div class="paso">
-        <div class="paso-num">04</div>
-        <div class="paso-title">Reporte</div>
-        <div class="paso-sub">Entregamos resultados cada mes y ajustamos la estrategia con datos reales.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="wrap">
-    <h2>Preguntas frecuentes</h2>
-
-    <details class="faq-item">
-      <summary>¿Hay permanencia mínima?</summary>
-      <p>Sí, mínimo 3 meses en los paquetes mensuales. Es el tiempo que toma que el contenido y la pauta empiecen a mostrar resultados reales — antes de eso las métricas no son representativas.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Quién paga la pauta publicitaria (Meta Ads)?</summary>
-      <p>En todos los paquetes, el presupuesto de pauta lo pagas tú directamente a Meta; nosotros nos encargamos de gestionarla: crear las campañas, optimizarlas y escalarlas. El monto depende de tu negocio, tu sector y tu objetivo, y lo definimos juntos en el diagnóstico, antes de que inviertas.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Qué pasa si no me gusta una pieza de contenido?</summary>
-      <p>Revisas y apruebas cada pieza antes de publicarla. Si algo no encaja con tu marca, la ajustamos sin costo adicional dentro del alcance del mes.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Cómo es la forma de pago?</summary>
-      <p>50% de anticipo al iniciar el mes y 50% contra entrega del contenido del mes. Aceptamos Nequi/Daviplata, transferencia bancaria y PSE.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Puedo cambiar de paquete más adelante?</summary>
-      <p>Sí. Puedes subir de nivel cuando lo necesites — el cambio aplica desde el siguiente mes.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Necesito tener ya redes sociales o WhatsApp Business creados?</summary>
-      <p>No es necesario. Si no los tienes, los creamos y configuramos como parte del arranque.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Cuándo conviene empezar con pauta?</summary>
-      <p>Cuando la marca y el contenido ya están ordenados, la pauta rinde más. En el diagnóstico revisamos tu punto de partida: si ya puedes invertir, la activamos desde el primer paquete; si no, primero ordenamos la base.</p>
-    </details>
-  </div>
-</section>
-
-<section class="condiciones">
-  <div class="wrap">
-    <span class="condiciones-label">Condiciones de servicio</span>
-    <div class="condiciones-grid">
-      <div class="cond-item">
-        <div class="cond-title">Permanencia</div>
-        <div class="cond-sub">Mínimo 3 meses en los paquetes mensuales.</div>
-      </div>
-      <div class="cond-item">
-        <div class="cond-title">Forma de pago</div>
-        <div class="cond-sub">50% anticipo al iniciar el mes, 50% contra entrega del contenido del mes.</div>
-      </div>
-      <div class="cond-item">
-        <div class="cond-title">Métodos aceptados</div>
-        <div class="cond-sub">Nequi/Daviplata, transferencia bancaria, PSE.</div>
-      </div>
-      <div class="cond-item">
-        <div class="cond-title">Tiempos de entrega</div>
-        <div class="cond-sub">Calendario de contenido: primeros 5 días hábiles del mes.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="cta" id="contacto">
-  <div class="wrap">
-    <div>
-      <h3>Cada paquete es un punto de partida, no una caja cerrada.</h3>
-    </div>
-    <div class="cta-buttons">
-      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-footer-whatsapp" data-goatcounter-title="Footer: WhatsApp">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Pedir mi diagnóstico gratis
-      </a>
-    </div>
-  </div>
-</footer>
-
-<a class="btn btn-primary fab" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-goatcounter-click="cta-flotante-whatsapp" data-goatcounter-title="Botón flotante WhatsApp">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-  WhatsApp
-</a>
-
-<script>
-  (function () {
-    var fab = document.querySelector('.fab');
-    if (!fab || !('IntersectionObserver' in window)) return;
-    var visible = new Set();
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) visible.add(e.target); else visible.delete(e.target);
-      });
-      fab.classList.toggle('fab-hide', visible.size > 0);
-    });
-    document.querySelectorAll('.hero-cta, .diagnostico .btn, .cta').forEach(function (el) { io.observe(el); });
-  })();
-</script>
-
 <script>
   (function () {
     var root = document.documentElement;
@@ -1111,9 +922,8 @@
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var targets = [
-      '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa',
-      '.mapa-head', '.nodo', '.semanas-head', '.chips li', '.resultado-head', '.tile', '.resultado-note',
-      '.pk-head', '.card', '.proceso .eyebrow', '.proceso h2', '.paso', '.faq h2', '.cta .wrap > *'
+      '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.mapa-head', '.nodo', '.semanas-head', '.chips li',
+      '.resultado-head', '.tile', '.resultado-note', '.pk-head', '.card', '.proceso .eyebrow', '.proceso h2', '.paso'
     ].join(',');
 
     // Cada bloque aparece una sola vez, con un pequeño escalón entre los que entran juntos.
