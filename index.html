@@ -117,6 +117,39 @@
   /* Íconos */
   .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
+  /* Lo que te queda (estilos base) */
+  .resultado { padding: clamp(32px, 5vw, 48px) 0; border-bottom: 1px solid var(--line); }
+  .resultado-head { max-width: 60ch; margin-bottom: 20px; }
+  .resultado-head h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* Quiénes somos */
+  .somos { padding: clamp(32px, 5vw, 48px) 0; }
+  .somos .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(24px, 5vw, 56px); align-items: start; }
+  @media (max-width: 760px) { .somos .wrap { grid-template-columns: 1fr; } }
+  .somos h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .somos-intro p { margin: 0; color: var(--ink-soft); line-height: 1.6; max-width: 46ch; }
+  .somos-list { display: flex; flex-direction: column; }
+  .somos-item { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; padding: 18px 0; border-top: 1px solid var(--line); }
+  .somos-item:first-child { border-top: 0; padding-top: 0; }
+  .somos-item:last-child { padding-bottom: 0; }
+  .somos-item .tile-ico { width: 44px; height: 44px; }
+  .somos-item h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.1rem; margin: 2px 0 4px; letter-spacing: -0.01em; }
+  .somos-item p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+
   /* Lo que te queda */
   .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 760px) { .tiles { grid-template-columns: 1fr 1fr; } }
@@ -374,7 +407,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         Pedir mi diagnóstico gratis
       </a>
-      <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-hero-llamada" data-goatcounter-title="Hero: agendar llamada">
+      <a class="btn btn-secondary" href="https://calendar.app.google/FpHhegkMaCgaTr8x7" target="_blank" rel="noopener" data-goatcounter-click="cta-hero-llamada" data-goatcounter-title="Hero: agendar llamada">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg>
         Agendar llamada
       </a>
@@ -403,6 +436,21 @@
 </section>
 
 
+<section class="somos" id="quienes-somos">
+  <div class="wrap">
+    <div class="somos-intro">
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Marketing digital cercano, pensado para tu negocio</h2>
+      <p>MA Creative es un equipo de marketing digital en Colombia. Crea el contenido de tus redes y gestiona tu publicidad en Meta para que más personas te encuentren y te escriban.</p>
+    </div>
+    <div class="somos-list">
+      <div class="somos-item"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></span><div><h3>Contenido con propósito</h3><p>Reels, carruseles e historias pensados para atraer clientes, no solo para llenar el feed.</p></div></div>
+      <div class="somos-item"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></span><div><h3>Publicidad con claridad</h3><p>Campañas en Meta por objetivo. La pauta la pagas tú directo a Meta.</p></div></div>
+      <div class="somos-item"><span class="tile-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span><div><h3>Acompañamiento cercano</h3><p>Una llamada virtual cada semana y un informe de resultados cada mes.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="diagnostico" id="diagnostico">
   <div class="wrap">
     <div>
@@ -416,7 +464,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           Pedir mi diagnóstico gratis
         </a>
-        <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-meet" data-goatcounter-title="Diagnóstico: agendar llamada por Meet">
+        <a class="btn btn-secondary" href="https://calendar.app.google/FpHhegkMaCgaTr8x7" target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-meet" data-goatcounter-title="Diagnóstico: agendar llamada por Meet">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
           Agendar llamada por Meet
         </a>
@@ -516,7 +564,7 @@
 
     var targets = [
       '.diagnostico .wrap > *',
-      '.resultado-head', '.tile', '.resultado-note', '.pk-head', '.card'
+      '.resultado-head', '.tile', '.resultado-note', '.somos-intro', '.somos-item', '.pk-head', '.card'
     ].join(',');
 
     // Cada bloque aparece una sola vez, con un pequeño escalón entre los que entran juntos.
