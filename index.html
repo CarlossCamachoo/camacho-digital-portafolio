@@ -4,51 +4,27 @@
 <meta name="description" content="Redes sociales, Meta Ads, WhatsApp Business, CRM y app a medida — cuatro paquetes para gestionar tu negocio como un solo sistema.">
 <meta property="og:title" content="MA Creative — Portafolio de servicios">
 <meta property="og:description" content="Redes sociales, Meta Ads, WhatsApp Business, CRM y app a medida — cuatro paquetes para gestionar tu negocio como un solo sistema.">
-<meta name="theme-color" content="#181b22">
+<meta name="theme-color" content="#edf3f0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Un solo tema claro y de bajo deslumbramiento: legible a plena luz y descansado de noche */
   :root {
-    --ink: #031926;
-    --ink-soft: #4f6a70;
-    --paper: #f9f6ee;
-    --paper-raised: #fdfbf6;
-    --line: #e2ddcd;
-    --accent: #468189;
+    color-scheme: light;
+    --ink: #1f3036;
+    --ink-soft: #4a6168;
+    --paper: #edf3f0;
+    --paper-raised: #f8fbf9;
+    --line: #cfdcd6;
+    --accent: #2c7580;
     --accent-ink: #ffffff;
-    --accent-2: #77aca2;
-    --accent-2-ink: #031926;
-    --accent-2-text: #3e7267;
-    --shadow: 0 1px 0 rgba(3,25,38,0.05);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ink: #f4e9cd;
-      --ink-soft: #9dbebb;
-      --paper: #031926;
-      --paper-raised: #0a2733;
-      --line: #163642;
-      --accent: #5b9aa1;
-      --accent-ink: #031926;
-      --accent-2: #77aca2;
-      --accent-2-ink: #031926;
-      --accent-2-text: #77aca2;
-      --shadow: 0 1px 0 rgba(0,0,0,0.3);
-    }
-  }
-  :root[data-theme="dark"] {
-    --ink: #f4e9cd;
-    --ink-soft: #9dbebb;
-    --paper: #031926;
-    --paper-raised: #0a2733;
-    --line: #163642;
-    --accent: #5b9aa1;
-    --accent-ink: #031926;
-    --accent-2: #77aca2;
-    --accent-2-ink: #031926;
-    --accent-2-text: #77aca2;
-    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    --accent-2: #8fc5b8;
+    --accent-2-ink: #1f3036;
+    --accent-2-text: #2b6a5f;
+    --deep: #274f56;
+    --on-deep: #eef6f3;
+    --shadow: 0 1px 0 rgba(31,48,54,0.06);
   }
 
   * { box-sizing: border-box; }
@@ -147,12 +123,11 @@
   .cap-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
+    gap: 10px;
   }
   .cap-item {
-    background: var(--paper);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
     padding: 22px 20px;
     display: flex;
     flex-direction: column;
@@ -162,7 +137,6 @@
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.7rem;
     color: var(--ink-soft);
-    opacity: 0.7;
   }
   .cap-item .cap-label {
     font-size: 0.95rem;
@@ -209,7 +183,7 @@
   .phone {
     width: min(100%, 240px);
     margin: 0 auto 14px;
-    background: #031926;
+    background: var(--ink);
     border-radius: 34px;
     padding: 10px 8px;
     box-shadow: 0 12px 28px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
@@ -223,7 +197,7 @@
   .phone-notch {
     width: 70px;
     height: 16px;
-    background: #031926;
+    background: var(--ink);
     border-radius: 0 0 12px 12px;
     margin: 0 auto;
   }
@@ -385,15 +359,17 @@
     box-shadow: 0 0 0 1px var(--accent);
   }
   .card.flagship {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--paper);
+    background: var(--deep);
+    border-color: var(--deep);
+    color: var(--on-deep);
   }
   .card.flagship .tier-name,
   .card.flagship .price,
-  .card.flagship .note { color: var(--paper); }
-  .card.flagship .item { color: var(--paper); opacity: 0.92; }
-  .card.flagship .item::before { color: var(--accent); }
+  .card.flagship .note { color: var(--on-deep); }
+  .card.flagship .item { color: var(--on-deep); opacity: 0.92; }
+  .card.flagship .item.sub { color: var(--on-deep); opacity: 0.75; }
+  .card.flagship .item::before { color: var(--accent-2); }
+  .card.flagship .price .per { color: var(--on-deep); opacity: 0.75; }
 
   .tag {
     position: absolute;
@@ -449,7 +425,7 @@
     left: 0;
     color: var(--accent);
   }
-  .item.sub { color: var(--ink-soft); opacity: 0.85; font-size: 0.82rem; }
+  .item.sub { color: var(--ink-soft); font-size: 0.82rem; }
 
   .note {
     font-family: "IBM Plex Mono", monospace;
@@ -459,7 +435,7 @@
     padding-top: 12px;
     line-height: 1.5;
   }
-  .card.flagship .note { border-top-color: rgba(241,242,236,0.2); opacity: 0.75; }
+  .card.flagship .note { border-top-color: rgba(238,246,243,0.25); opacity: 0.75; }
 
   .gift-label {
     font-family: "IBM Plex Mono", monospace;
@@ -647,8 +623,8 @@
   /* Footer CTA */
   .cta {
     margin-top: clamp(36px, 5vw, 56px);
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--deep);
+    color: var(--on-deep);
   }
   .cta .wrap { padding: clamp(44px, 8vw, 76px) clamp(20px, 5vw, 56px); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
   .cta h3 {
@@ -677,7 +653,9 @@
   .btn:hover { opacity: 0.85; }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .btn-primary { background: var(--accent); color: var(--accent-ink); }
-  .btn-secondary { background: transparent; color: var(--paper); }
+  .btn-secondary { background: transparent; color: var(--on-deep); border-color: rgba(238,246,243,0.55); }
+  .cta .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
+  .cta .btn:focus-visible { outline-color: var(--on-deep); }
   .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 </style>
 
@@ -717,12 +695,11 @@
     <div class="cap-grid">
       <div class="cap-item"><span class="cap-num">01</span><span class="cap-label">Manejo de Meta Ads</span></div>
       <div class="cap-item"><span class="cap-num">02</span><span class="cap-label">Creación de pautas según objetivo</span></div>
-      <div class="cap-item"><span class="cap-num">03</span><span class="cap-label">Estudio de mercado y competencia</span></div>
-      <div class="cap-item"><span class="cap-num">04</span><span class="cap-label">Manejo de WhatsApp Business</span></div>
-      <div class="cap-item"><span class="cap-num">05</span><span class="cap-label">Creación de contenido y edición</span></div>
-      <div class="cap-item"><span class="cap-num">06</span><span class="cap-label">Estrategia para redes sociales</span></div>
-      <div class="cap-item"><span class="cap-num">07</span><span class="cap-label">Creación y automatización de CRM</span></div>
-      <div class="cap-item"><span class="cap-num">08</span><span class="cap-label">App a medida para tu negocio</span></div>
+      <div class="cap-item"><span class="cap-num">03</span><span class="cap-label">Manejo de WhatsApp Business</span></div>
+      <div class="cap-item"><span class="cap-num">04</span><span class="cap-label">Creación de contenido y edición</span></div>
+      <div class="cap-item"><span class="cap-num">05</span><span class="cap-label">Estrategia para redes sociales</span></div>
+      <div class="cap-item"><span class="cap-num">06</span><span class="cap-label">Creación y automatización de CRM</span></div>
+      <div class="cap-item"><span class="cap-num">07</span><span class="cap-label">App a medida para tu negocio</span></div>
     </div>
   </div>
 </section>
@@ -910,14 +887,12 @@
           <li class="item">WhatsApp Business + estrategia</li>
           <li class="item">Meta Ads + pautas por objetivo</li>
           <li class="item sub">Presupuesto de pauta incluido en el precio</li>
-          <li class="item">Estudio de mercado y competencia</li>
           <li class="item">Creación de CRM</li>
         </ul>
         <div>
           <span class="gift-label">Regalos incluidos</span>
           <ul class="gift-list">
             <li>Sesión de estrategia trimestral gratis</li>
-            <li>Informe de competencia gratis el primer mes</li>
             <li>Presupuesto de prueba de pauta sin cobro de gestión el primer mes</li>
           </ul>
         </div>
@@ -965,7 +940,7 @@
       <div class="alacarte-row"><span class="name">Creación de pautas por objetivo (campaña puntual)</span><span class="price-tag">Desde $300.000</span></div>
       <div class="alacarte-row"><span class="name">Configuración de WhatsApp Business</span><span class="price-tag">Desde $100.000</span></div>
       <div class="alacarte-row"><span class="name">Contenido suelto — 1 reel + 1 carrusel + 2 historias</span><span class="price-tag">Desde $180.000</span></div>
-      <div class="alacarte-row"><span class="name">Creación de CRM</span><span class="price-tag">Desde $300.000</span></div>
+      <div class="alacarte-row"><span class="name">Creación de CRM</span><span class="price-tag">Desde $600.000</span></div>
       <div class="alacarte-row"><span class="name">Automatización de un CRM existente</span><span class="price-tag">Desde $600.000</span></div>
     </div>
     <p class="alacarte-note">Precios en COP, sujetos al alcance real de cada caso. Si terminas contratando 2 o más servicios de forma recurrente, sale más económico pasarte a un paquete.</p>
