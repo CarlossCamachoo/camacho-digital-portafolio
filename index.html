@@ -126,19 +126,11 @@
     text-wrap: balance;
   }
   .mapa-head p, .semanas-head p, .resultado-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+  .mapa-head { max-width: none; }
+  .mapa-head p { max-width: 60ch; }
+  .mapa-titulo { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; margin-bottom: 14px; }
+  .mapa-head .mapa-leyenda { max-width: none; }
   .mapa-head .mapa-leyenda { margin-top: 10px; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.04em; }
-  .mapa-filtro { display: flex; gap: 8px; margin: 0 0 24px; overflow-x: auto; scrollbar-width: none; }
-  .mapa-filtro::-webkit-scrollbar { display: none; }
-  .mapa-filtro[hidden] { display: none; }
-  .chip {
-    flex: 0 0 auto; min-height: 44px; padding: 0 16px;
-    border: 1px solid var(--line); background: var(--paper-raised); color: var(--ink);
-    font: 500 0.86rem "Work Sans", sans-serif; cursor: pointer;
-    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms var(--ease-out);
-  }
-  .chip:active { transform: scale(0.97); }
-  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper-raised); border-color: var(--ink); }
-  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .mapa-ruta { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 14px; }
   .mapa-ruta::before { content: ""; position: absolute; top: 20px; bottom: 20px; left: 37px; width: 2px; background: var(--line); }
   .nodo {
@@ -161,10 +153,6 @@
     font: 600 0.68rem "IBM Plex Mono", monospace; border: 1px solid var(--line); color: var(--ink-soft);
   }
   .pks li.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  .mapa-ruta[data-pk="a"] .nodo:not([data-in~="a"]),
-  .mapa-ruta[data-pk="c"] .nodo:not([data-in~="c"]),
-  .mapa-ruta[data-pk="i"] .nodo:not([data-in~="i"]),
-  .mapa-ruta[data-pk="t"] .nodo:not([data-in~="t"]) { opacity: 0.38; }
   @media (min-width: 760px) {
     .mapa-ruta { grid-template-columns: 1fr 1fr; column-gap: 72px; align-items: start; }
     .mapa-ruta::before { left: 50%; transform: translateX(-1px); }
@@ -178,32 +166,6 @@
   }
 
   /* Semana a semana */
-  .semanas-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  @media (max-width: 899px) { .semanas-grid { grid-template-columns: 1fr 1fr; } }
-  .semanas-hint { display: none; margin: 0 0 8px; font-size: 0.82rem; color: var(--ink-soft); }
-  @media (max-width: 560px) {
-    .semanas-hint { display: block; }
-    .semanas-grid {
-      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
-      margin-right: -20px; padding-right: 20px; padding-bottom: 4px; scrollbar-width: none;
-    }
-    .semanas-grid::-webkit-scrollbar { display: none; }
-    .semanas-grid:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .semana { flex: 0 0 78%; scroll-snap-align: start; }
-  }
-  .semana { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px 16px; background: var(--paper-raised); border: 1px solid var(--line); }
-  .semana-num { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-  .semana h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; }
-  .semana ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .semana li { position: relative; padding-left: 16px; font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft); }
-  .semana li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
-  @media (min-width: 900px) {
-    .semana:not(:last-child)::after { content: "›"; position: absolute; top: 14px; right: -14px; width: 14px; text-align: center; font-family: "Fraunces", serif; font-size: 1.5rem; line-height: 1; color: var(--accent); }
-  }
-  .semanas-loop { display: flex; align-items: center; gap: 10px; margin: 18px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
-  .semanas-loop .ico { color: var(--accent); }
-  .semanal { margin-top: 28px; }
-  .semanal h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.25rem; margin: 0 0 12px; letter-spacing: -0.01em; }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .chips li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--accent-tint); border: 1px solid var(--line); font-size: 0.88rem; color: var(--ink); }
   @media (max-width: 560px) { .chips li { padding: 8px 12px; font-size: 0.84rem; } }
@@ -219,183 +181,6 @@
   .tile p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); }
   @media (max-width: 560px) { .tile { padding: 16px 14px; } .tile p { font-size: 0.86rem; } }
   .resultado-note { margin: 18px 0 0; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
-
-  /* Enfoque */
-  .enfoque {
-    padding: clamp(32px, 5vw, 48px) 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .enfoque-head { max-width: 60ch; margin-bottom: clamp(24px, 4vw, 32px); }
-  .enfoque-head h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
-    margin: 10px 0 12px;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .enfoque-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
-
-  .comparativa {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-bottom: clamp(28px, 4vw, 36px);
-  }
-  @media (max-width: 640px) {
-    .comparativa { grid-template-columns: 1fr; }
-  }
-  .comp-col-label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .comp-col.sin .comp-col-label { color: var(--ink-soft); }
-  .comp-col.con .comp-col-label { color: var(--accent-2-text); }
-
-  .phone {
-    width: min(100%, 240px);
-    margin: 0 auto 14px;
-    background: var(--ink);
-    border-radius: 34px;
-    padding: 10px 8px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
-  }
-  .phone-screen {
-    background: var(--paper-raised);
-    border-radius: 24px;
-    overflow: hidden;
-    padding-bottom: 8px;
-  }
-  .phone-notch {
-    width: 70px;
-    height: 16px;
-    background: var(--ink);
-    border-radius: 0 0 12px 12px;
-    margin: 0 auto;
-  }
-  .phone-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px 8px;
-  }
-  .phone-avatar {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--line);
-    flex-shrink: 0;
-  }
-  .comp-col.con .phone-avatar { background: var(--accent); }
-  .phone-uname {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.58rem;
-    color: var(--ink-soft);
-  }
-  .phone-tabs {
-    display: flex;
-    gap: 18px;
-    padding: 0 12px 8px;
-    border-bottom: 1px solid var(--line);
-  }
-  .phone-tabs span {
-    width: 14px;
-    height: 2px;
-    background: var(--line);
-    align-self: center;
-  }
-  .phone-tabs span:first-child { background: var(--ink-soft); }
-
-  .feed-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    aspect-ratio: 1;
-  }
-  .feed-grid span { display: block; }
-
-  .comp-col.sin .feed-grid span:nth-child(1) { background: #d64550; }
-  .comp-col.sin .feed-grid span:nth-child(2) { background: #f2b134; }
-  .comp-col.sin .feed-grid span:nth-child(3) { background: #2a6f97; }
-  .comp-col.sin .feed-grid span:nth-child(4) { background: #6a4c93; }
-  .comp-col.sin .feed-grid span:nth-child(5) { background: #1b998b; }
-  .comp-col.sin .feed-grid span:nth-child(6) { background: #e56b6f; }
-  .comp-col.sin .feed-grid span:nth-child(7) { background: #f2b134; }
-  .comp-col.sin .feed-grid span:nth-child(8) { background: #2a6f97; }
-  .comp-col.sin .feed-grid span:nth-child(9) { background: #6a4c93; }
-
-  .comp-col.con .feed-grid span:nth-child(3n+1) { background: var(--accent); }
-  .comp-col.con .feed-grid span:nth-child(3n+2) { background: var(--paper-raised); border: 1px solid var(--line); }
-  .comp-col.con .feed-grid span:nth-child(3n) { background: var(--accent-2); }
-  .comp-col.con .feed-grid span:nth-child(4) { background: var(--ink); }
-  .comp-col.con .feed-grid span:nth-child(6) { background: var(--ink); }
-
-  .comp-col-caption { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.5; }
-
-  .patrones {
-    margin-bottom: clamp(28px, 4vw, 36px);
-  }
-  .patrones-label {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-soft);
-    display: block;
-    margin-bottom: 16px;
-  }
-  .patrones-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  @media (max-width: 640px) {
-    .patrones-row { grid-template-columns: 1fr 1fr; }
-  }
-  .patron-item { text-align: center; }
-  .patron-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    aspect-ratio: 1;
-    margin-bottom: 8px;
-  }
-  .patron-grid span { display: block; background: var(--paper-raised); border: 1px solid var(--line); }
-  .patron-name { font-size: 0.76rem; color: var(--ink-soft); }
-
-  .patron-damero span:nth-child(1),
-  .patron-damero span:nth-child(3),
-  .patron-damero span:nth-child(5),
-  .patron-damero span:nth-child(7),
-  .patron-damero span:nth-child(9) { background: var(--accent); border-color: var(--accent); }
-
-  .patron-arcoiris span:nth-child(-n+3) { background: var(--accent); border-color: var(--accent); }
-  .patron-arcoiris span:nth-child(n+4):nth-child(-n+6) { background: var(--accent-2); opacity: 0.7; border-color: transparent; }
-  .patron-arcoiris span:nth-child(n+7) { background: var(--line); border-color: var(--line); }
-
-  .patron-linea span:nth-child(-n+3) { background: var(--accent-2); border-color: var(--accent-2); }
-  .patron-linea span:nth-child(n+7) { background: var(--accent-2); border-color: var(--accent-2); }
-
-  .patron-diagonal span:nth-child(1),
-  .patron-diagonal span:nth-child(5),
-  .patron-diagonal span:nth-child(9) { background: var(--accent); border-color: var(--accent); }
-  .patron-diagonal span:nth-child(3),
-  .patron-diagonal span:nth-child(7) { background: var(--accent-2); border-color: var(--accent-2); }
-
-  .pilares {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 800px) {
-    .pilares { grid-template-columns: 1fr 1fr; }
-  }
-  .pilar .pilar-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; }
-  .pilar .pilar-sub { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
 
   /* Paquetes */
   .paquetes { padding: clamp(32px, 5vw, 48px) 0 clamp(16px, 3vw, 28px); }
@@ -557,7 +342,6 @@
     letter-spacing: -0.01em;
     text-wrap: balance;
   }
-  .ruta-head p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
   .ruta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 700px) { .ruta-grid { grid-template-columns: 1fr; } }
   .etapa {
@@ -573,8 +357,6 @@
   .etapa p { margin: 0; color: var(--ink-soft); line-height: 1.55; font-size: 0.92rem; }
   .etapa-pack { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
   .etapa-pack strong { color: var(--ink); font-weight: 600; }
-  .ruta-note { margin: 18px 0 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; max-width: 70ch; }
-  .ruta-note a { color: var(--accent); }
   .card-start { margin: -8px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; }
   .card-start strong { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
   .card.flagship .card-start, .card.flagship .card-start strong { color: var(--on-deep); }
@@ -782,7 +564,6 @@
   :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); interpolate-size: allow-keywords; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes pop { from { opacity: 0; transform: scale(0.9); } }
   .js .h-in { animation: rise 640ms var(--ease-out) both; }
   .js .h-in.d1 { animation-delay: 60ms; }
   .js .h-in.d2 { animation-delay: 140ms; }
@@ -795,8 +576,6 @@
     transition: opacity 560ms var(--ease-out), transform 560ms var(--ease-out);
   }
   .js .reveal.in { opacity: 1; transform: none; }
-  .js .stagger:not(.on) span { opacity: 0; }
-  .js .stagger.on span { animation: pop 380ms var(--ease-out) backwards; }
 
   @media (hover: hover) and (pointer: fine) {
     .card { transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
@@ -843,6 +622,7 @@
   /* Celular: botones principales a todo el ancho, fáciles de tocar con el pulgar */
   @media (max-width: 560px) {
     .hero-cta .btn, .cta-buttons .btn { flex: 1 1 100%; justify-content: center; }
+    .mapa-titulo .btn { width: 100%; justify-content: center; }
     .cta-buttons { width: 100%; }
     .diag-side { align-items: stretch; }
     .diag-btns { flex-direction: column; }
@@ -927,9 +707,11 @@
           <li class="item">2 carruseles</li>
           <li class="item">4 historias</li>
           <li class="item">Calendario de contenido mensual</li>
+          <li class="item sub">Nosotros programamos y publicamos</li>
+          <li class="item">Propuesta de estrategia para redes</li>
           <li class="item">Gestión de pauta digital</li>
           <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
-          <li class="item sub">Entregamos el material — tú publicas</li>
+          <li class="item">Informe estadístico + feedback</li>
         </ul>
         <div>
           <span class="gift-label">Regalos incluidos</span>
@@ -960,6 +742,7 @@
           <li class="item sub">Convertimos lo que ya sabes de tu negocio en contenido</li>
           <li class="item">Gestión de pauta digital</li>
           <li class="item sub">Presupuesto de pauta a cargo del cliente — lo definimos juntos en el diagnóstico</li>
+          <li class="item">Informe estadístico + feedback</li>
         </ul>
         <div>
           <span class="gift-label">Regalos incluidos</span>
@@ -1067,7 +850,6 @@
     <div class="ruta-head">
       <div class="eyebrow">La ruta</div>
       <h2>Primero la base, después el crecimiento</h2>
-      <p>Invertir en pauta antes de ordenar la marca y el contenido suele ser gastar de más. Por eso trabajamos por etapas, y el diagnóstico define en cuál estás hoy.</p>
     </div>
     <div class="ruta-grid">
       <div class="etapa">
@@ -1089,32 +871,31 @@
         <div class="etapa-pack"><strong>Encajan:</strong> Integral · Transformación</div>
       </div>
     </div>
-    <p class="ruta-note">¿Ya puedes invertir en pauta? Si el diagnóstico lo confirma, la activamos desde el primer paquete. ¿No sabes en qué etapa estás? <a href="#diagnostico">Pide tu diagnóstico gratis</a>.</p>
   </div>
 </section>
 
 <section class="mapa" id="mapa">
   <div class="wrap">
     <div class="mapa-head">
-      <div class="eyebrow">El mapa del trabajo</div>
-      <h2>Qué hay detrás de cada paquete</h2>
-      <p>De la idea al cliente, en nueve paradas. Elige un paquete y mira por cuáles pasamos.</p>
+      <div class="mapa-titulo">
+        <div>
+          <div class="eyebrow">El mapa del trabajo</div>
+          <h2>Qué hay detrás de cada paquete</h2>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener" data-goatcounter-click="cta-mapa-llamada" data-goatcounter-title="Mapa: agendar llamada por WhatsApp">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>
+          Agendar llamada por WhatsApp
+        </a>
+      </div>
+      <p>De la idea al cliente, en nueve paradas. Las casillas muestran en qué paquetes está cada una.</p>
       <p class="mapa-leyenda">A Arranque · C Crecimiento · I Integral · T Transformación</p>
     </div>
-    <div class="mapa-filtro" role="group" aria-label="Ver el mapa según el paquete" hidden>
-      <button type="button" class="chip" aria-pressed="true" data-pk="todos" data-goatcounter-click="mapa-filtro-todos" data-goatcounter-title="Mapa: Todos">Todos</button>
-      <button type="button" class="chip" aria-pressed="false" data-pk="a" data-goatcounter-click="mapa-filtro-arranque" data-goatcounter-title="Mapa: Arranque">Arranque</button>
-      <button type="button" class="chip" aria-pressed="false" data-pk="c" data-goatcounter-click="mapa-filtro-crecimiento" data-goatcounter-title="Mapa: Crecimiento">Crecimiento</button>
-      <button type="button" class="chip" aria-pressed="false" data-pk="i" data-goatcounter-click="mapa-filtro-integral" data-goatcounter-title="Mapa: Integral">Integral</button>
-      <button type="button" class="chip" aria-pressed="false" data-pk="t" data-goatcounter-click="mapa-filtro-transformación" data-goatcounter-title="Mapa: Transformación">Transformación</button>
-    </div>
-    <p class="sr" id="mapa-estado" aria-live="polite"></p>
-    <ol class="mapa-ruta" data-pk="todos">
-      <li class="nodo" data-in="c i t">
+    <ol class="mapa-ruta">
+      <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg></span>
         <div class="nodo-txt"><h3>Estrategia</h3><p>Qué decir, a quién y por qué.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Crecimiento, Integral, Transformación.</span>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
       </li>
       <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg></span>
@@ -1128,11 +909,11 @@
         <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
         <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
       </li>
-      <li class="nodo" data-in="c i t">
+      <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-send"/></svg></span>
         <div class="nodo-txt"><h3>Publicación</h3><p>Programamos y publicamos por ti.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Crecimiento, Integral, Transformación.</span>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
       </li>
       <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
@@ -1146,11 +927,11 @@
         <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
         <span class="sr">Incluido en: Integral, Transformación.</span>
       </li>
-      <li class="nodo" data-in="i t">
+      <li class="nodo" data-in="a c i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg></span>
         <div class="nodo-txt"><h3>Medición</h3><p>Informe y feedback de lo que funciona.</p></div>
-        <ul class="pks" aria-hidden="true"><li class="">A</li><li class="">C</li><li class="on">I</li><li class="on">T</li></ul>
-        <span class="sr">Incluido en: Integral, Transformación.</span>
+        <ul class="pks" aria-hidden="true"><li class="on">A</li><li class="on">C</li><li class="on">I</li><li class="on">T</li></ul>
+        <span class="sr">Incluido en: Arranque, Crecimiento, Integral, Transformación.</span>
       </li>
       <li class="nodo sec" data-in="i t">
         <span class="nodo-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
@@ -1172,137 +953,14 @@
   <div class="wrap">
     <div class="semanas-head">
       <div class="eyebrow">Semana a semana</div>
-      <h2>Así mejora tu contenido cada mes</h2>
-      <p>Un ciclo corto que se repite: planear, crear, publicar y medir. Lo que aprendemos en una semana alimenta la siguiente.</p>
+      <h2>Lo que revisamos cada semana</h2>
     </div>
-    <p class="semanas-hint">Desliza para ver las cuatro semanas →</p>
-    <ol class="semanas-grid" tabindex="0" aria-label="Las cuatro semanas del mes">
-      <li class="semana"><span class="semana-num">Semana 1</span><h3>Planear</h3>
-        <ul><li>Ideas y temas del mes</li><li>Calendario en los primeros 5 días hábiles</li><li>Guion y estructura de reels e historias</li></ul></li>
-      <li class="semana"><span class="semana-num">Semana 2</span><h3>Crear</h3>
-        <ul><li>Grabación y diseño</li><li>Edición de cada pieza</li><li>Tu revisión y aprobación</li></ul></li>
-      <li class="semana"><span class="semana-num">Semana 3</span><h3>Publicar y pautar</h3>
-        <ul><li>Publicación según el calendario</li><li>Campañas activas en Meta</li><li>Ajustes rápidos sobre la marcha</li></ul></li>
-      <li class="semana"><span class="semana-num">Semana 4</span><h3>Medir y mejorar</h3>
-        <ul><li>Qué funcionó y qué no</li><li>Ajustes a la estrategia</li><li>Plan del próximo mes</li></ul></li>
-    </ol>
-    <p class="semanas-loop"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-repeat"/></svg><span>Con lo que medimos en la semana 4, volvemos a la semana 1 con mejores ideas.</span></p>
-    <div class="semanal">
-      <h3>Y cada semana revisamos</h3>
-      <ul class="chips">
-        <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
-      </ul>
-    </div>
+    <ul class="chips">
+      <li>Mensaje y objetivo</li><li>Ideas y temas</li><li>Guion y estructura</li><li>Lo publicado</li><li>Lo que funcionó</li><li>Qué ajustar</li><li>Plan de la próxima semana</li>
+    </ul>
   </div>
 </section>
 
-<section class="enfoque">
-  <div class="wrap">
-    <div class="enfoque-head">
-      <div class="eyebrow">Nuestro enfoque</div>
-      <h2>Así pensamos tu feed antes de publicar una sola pieza</h2>
-      <p>La diferencia no está en producir más contenido — está en que cada pieza responda a un plan. Esto es lo que cambia cuando entramos a manejar tus redes.</p>
-    </div>
-
-    <div class="comparativa">
-      <div class="comp-col sin">
-        <span class="comp-col-label">Sin estrategia</span>
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-header">
-              <span class="phone-avatar"></span>
-              <span class="phone-uname">tu_negocio</span>
-            </div>
-            <div class="phone-tabs"><span></span><span></span><span></span></div>
-            <div class="feed-grid">
-              <span></span><span></span><span></span>
-              <span></span><span></span><span></span>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-        <p class="comp-col-caption">Colores que no dialogan entre sí, publicaciones sueltas, sin línea editorial ni calendario detrás.</p>
-      </div>
-      <div class="comp-col con">
-        <span class="comp-col-label">Con estrategia</span>
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-header">
-              <span class="phone-avatar"></span>
-              <span class="phone-uname">tu_negocio</span>
-            </div>
-            <div class="phone-tabs"><span></span><span></span><span></span></div>
-            <div class="feed-grid">
-              <span></span><span></span><span></span>
-              <span></span><span></span><span></span>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-        <p class="comp-col-caption">Paleta definida, patrón de feed pensado, cada pieza responde a un calendario y a un objetivo.</p>
-      </div>
-    </div>
-
-    <div class="patrones">
-      <span class="patrones-label">Patrones de feed que aplicamos</span>
-      <div class="patrones-row">
-        <div class="patron-item">
-          <div class="patron-grid patron-damero">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-          </div>
-          <div class="patron-name">Damero</div>
-        </div>
-        <div class="patron-item">
-          <div class="patron-grid patron-arcoiris">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-          </div>
-          <div class="patron-name">Arcoíris</div>
-        </div>
-        <div class="patron-item">
-          <div class="patron-grid patron-linea">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-          </div>
-          <div class="patron-name">Línea por línea</div>
-        </div>
-        <div class="patron-item">
-          <div class="patron-grid patron-diagonal">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-          </div>
-          <div class="patron-name">Diagonal</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pilares">
-      <div class="pilar">
-        <div class="pilar-title">Consistencia visual</div>
-        <div class="pilar-sub">Una paleta y un estilo que se reconocen a simple vista, publicación tras publicación.</div>
-      </div>
-      <div class="pilar">
-        <div class="pilar-title">Planeación editorial</div>
-        <div class="pilar-sub">Nada se sube al día — el calendario mensual define qué, cuándo y para qué.</div>
-      </div>
-      <div class="pilar">
-        <div class="pilar-title">Identidad de marca</div>
-        <div class="pilar-sub">Cada pieza refuerza cómo quieres que te recuerden, no solo cómo se ve bonito.</div>
-      </div>
-      <div class="pilar">
-        <div class="pilar-title">Contenido que convierte</div>
-        <div class="pilar-sub">Publicar por publicar no vende. Cada formato tiene un propósito dentro del embudo.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="resultado" id="resultado">
   <div class="wrap">
@@ -1355,7 +1013,6 @@
 
 <section class="faq">
   <div class="wrap">
-    <div class="eyebrow">Antes de escribir</div>
     <h2>Preguntas frecuentes</h2>
 
     <details class="faq-item">
@@ -1423,14 +1080,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         Pedir mi diagnóstico gratis
       </a>
-      <a class="btn btn-secondary" href="https://calendar.app.google/h3EZD9w6Wfr9Z59F8" target="_blank" rel="noopener" data-goatcounter-click="cta-footer-meet" data-goatcounter-title="Footer: agendar llamada por Meet">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3z"/></svg>
-        Agendar llamada por Meet
-      </a>
-      <a class="btn btn-secondary" href="mailto:camachonavarrc@gmail.com?subject=Quiero%20mi%20diagn%C3%B3stico%20gratis" data-goatcounter-click="cta-footer-correo" data-goatcounter-title="Footer: correo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
-        Correo
-      </a>
     </div>
   </div>
 </footer>
@@ -1462,11 +1111,9 @@
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var targets = [
-      '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa', '.ruta-note',
-      '.enfoque-head', '.comp-col', '.patrones-label', '.pilar',
-      '.mapa-head', '.nodo', '.semanas-head', '.semana', '.semanas-loop', '.semanal', '.resultado-head', '.tile', '.resultado-note',
-      '.pk-head', '.card',
-      '.proceso .eyebrow', '.proceso h2', '.paso', '.faq .eyebrow', '.faq h2', '.cta .wrap > *'
+      '.valores .valor', '.diagnostico .wrap > *', '.ruta-head', '.etapa',
+      '.mapa-head', '.nodo', '.semanas-head', '.chips li', '.resultado-head', '.tile', '.resultado-note',
+      '.pk-head', '.card', '.proceso .eyebrow', '.proceso h2', '.paso', '.faq h2', '.cta .wrap > *'
     ].join(',');
 
     // Cada bloque aparece una sola vez, con un pequeño escalón entre los que entran juntos.
@@ -1486,19 +1133,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     document.querySelectorAll(targets).forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
 
-    // Las casillas del feed "con estrategia" y los patrones se van llenando una a una.
-    var gio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('on');
-        gio.unobserve(e.target);
-      });
-    }, { threshold: 0.4 });
-    document.querySelectorAll('.comp-col.con .feed-grid, .patron-grid').forEach(function (g) {
-      g.classList.add('stagger');
-      Array.prototype.forEach.call(g.children, function (span, i) { span.style.animationDelay = (i * 50) + 'ms'; });
-      gio.observe(g);
-    });
   })();
 </script>
 
@@ -1610,29 +1244,6 @@
   })();
 </script>
 
-<script>
-  (function () {
-    var box = document.querySelector('.mapa-filtro');
-    var ruta = document.querySelector('.mapa-ruta');
-    var estado = document.getElementById('mapa-estado');
-    if (!box || !ruta) return;
-    box.hidden = false;
-    var nombres = { a: 'Arranque', c: 'Crecimiento', i: 'Integral', t: 'Transformación' };
-    var buttons = box.querySelectorAll('button');
-    box.addEventListener('click', function (e) {
-      var b = e.target.closest('button');
-      if (!b) return;
-      var k = b.getAttribute('data-pk');
-      ruta.setAttribute('data-pk', k);
-      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      if (!estado) return;
-      var total = ruta.querySelectorAll('.nodo').length;
-      if (k === 'todos') { estado.textContent = 'Mostrando las ' + total + ' paradas del mapa.'; return; }
-      var n = ruta.querySelectorAll('.nodo[data-in~="' + k + '"]').length;
-      estado.textContent = nombres[k] + ' incluye ' + n + ' de ' + total + ' paradas.';
-    });
-  })();
-</script>
 
 <script data-goatcounter="https://ma-creative.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
