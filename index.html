@@ -27,6 +27,8 @@
     --shadow: 0 1px 0 rgba(31,48,54,0.06);
   }
 
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -620,6 +622,53 @@
   .paso .paso-title { font-weight: 600; margin: 6px 0 4px; }
   .paso .paso-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.45; }
 
+  /* Botones de contacto */
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .hero-note { margin: 12px 0 0; font-size: 0.84rem; color: var(--ink-soft); }
+  .card .btn { width: 100%; justify-content: center; text-align: center; font-size: 0.76rem; letter-spacing: 0; padding: 14px 8px; }
+  .card.flagship .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
+  .card.flagship .btn:focus-visible { outline-color: var(--on-deep); }
+  .fab {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    box-shadow: 0 6px 18px rgba(31,48,54,0.22);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .fab.fab-hide { opacity: 0; transform: translateY(8px); pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .fab { transition: none; } }
+
+  /* Diagnóstico gratis */
+  .diagnostico {
+    padding: clamp(32px, 5vw, 48px) 0;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--line);
+  }
+  .diagnostico .wrap {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: clamp(24px, 5vw, 56px);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .diagnostico .wrap { grid-template-columns: 1fr; }
+  }
+  .diagnostico h2 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 10px 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .diagnostico p { color: var(--ink-soft); line-height: 1.6; margin: 0; max-width: 56ch; }
+  .diag-side { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .diag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .diag-list li { font-size: 0.92rem; line-height: 1.4; padding-left: 18px; position: relative; }
+  .diag-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .diag-side small { color: var(--ink-soft); font-size: 0.82rem; }
+
   /* Footer CTA */
   .cta {
     margin-top: clamp(36px, 5vw, 56px);
@@ -653,7 +702,8 @@
   .btn:hover { opacity: 0.85; }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .btn-primary { background: var(--accent); color: var(--accent-ink); }
-  .btn-secondary { background: transparent; color: var(--on-deep); border-color: rgba(238,246,243,0.55); }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .cta .btn-secondary { color: var(--on-deep); border-color: rgba(238,246,243,0.55); }
   .cta .btn-primary { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
   .cta .btn:focus-visible { outline-color: var(--on-deep); }
   .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
@@ -667,6 +717,14 @@
     <div class="eyebrow">Marketing digital &amp; automatización</div>
     <h1>Tu negocio, gestionado como <em>un solo sistema.</em></h1>
     <p class="hero-sub">Redes sociales, pauta en Meta, WhatsApp Business, CRM y software a medida — reunidos en cuatro paquetes pensados para crecer con tu negocio, no en contra de tu presupuesto.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-hero-diagnostico" data-goatcounter-title="Hero: diagnóstico gratis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Pedir mi diagnóstico gratis
+      </a>
+      <a class="btn btn-secondary" href="#paquetes" data-goatcounter-click="cta-hero-ver-paquetes" data-goatcounter-title="Hero: ver paquetes">Ver paquetes</a>
+    </div>
+    <p class="hero-note">Sin costo y sin compromiso. Te respondemos por WhatsApp.</p>
   </div>
 </header>
 
@@ -683,6 +741,27 @@
     <div class="valor">
       <div class="valor-title">Un solo equipo, un solo sistema</div>
       <div class="valor-sub">Contenido, pauta, WhatsApp y CRM trabajando coordinados — no como servicios sueltos.</div>
+    </div>
+  </div>
+</section>
+
+<section class="diagnostico" id="diagnostico">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Diagnóstico gratis</div>
+      <h2>Empieza sin pagar: te decimos qué paquete te conviene</h2>
+      <p>Revisamos tu negocio, tus redes y tu competencia, y te decimos con claridad qué paquete encaja, cuánto invertir en pauta y qué resultados son realistas. Sin costo y sin compromiso.</p>
+    </div>
+    <div class="diag-side">
+      <ul class="diag-list">
+        <li>Revisamos tus redes actuales</li>
+        <li>Miramos qué hace tu competencia</li>
+        <li>Te recomendamos paquete y presupuesto de pauta</li>
+      </ul>
+      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-diagnostico-seccion" data-goatcounter-title="Sección diagnóstico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Pedir mi diagnóstico gratis
+      </a>
     </div>
   </div>
 </section>
@@ -812,7 +891,7 @@
   </div>
 </section>
 
-<section class="paquetes">
+<section class="paquetes" id="paquetes">
   <div class="wrap">
     <div class="pk-head">
       <div class="eyebrow">Paquetes</div>
@@ -845,6 +924,7 @@
           </ul>
         </div>
         <div class="note">Ideal para negocios que están empezando en redes.</div>
+        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Arranque%20%28%24600.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-arranque" data-goatcounter-title="Paquete Arranque">Quiero este paquete</a>
       </div>
 
       <div class="card">
@@ -871,6 +951,7 @@
           </ul>
         </div>
         <div class="note">Para marcas que quieren constancia sin operarla ellas mismas.</div>
+        <a class="btn btn-secondary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Crecimiento%20%28%241.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-crecimiento" data-goatcounter-title="Paquete Crecimiento">Quiero este paquete</a>
       </div>
 
       <div class="card featured">
@@ -897,6 +978,7 @@
           </ul>
         </div>
         <div class="note">Pagas un solo valor — nosotros administramos y escalamos la inversión en pauta. Solo te entregamos resultados.</div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Integral%20%28%242.300.000/mes%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-integral" data-goatcounter-title="Paquete Integral">Quiero este paquete</a>
       </div>
 
       <div class="card flagship">
@@ -922,6 +1004,7 @@
           </ul>
         </div>
         <div class="note">Alcance de la app se define por cotización — funcionalidades a la medida del negocio.</div>
+        <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20me%20interesa%20el%20paquete%20Transformaci%C3%B3n%20%28desde%20%244.000.000%29.%20%C2%BFPodemos%20empezar%20con%20el%20diagn%C3%B3stico%20gratis%3F" target="_blank" rel="noopener" data-goatcounter-click="cta-paquete-transformacion" data-goatcounter-title="Paquete Transformación">Quiero este paquete</a>
       </div>
     </div>
   </div>
@@ -954,7 +1037,7 @@
     <div class="proceso-grid">
       <div class="paso">
         <div class="paso-num">01</div>
-        <div class="paso-title">Diagnóstico</div>
+        <div class="paso-title">Diagnóstico gratis</div>
         <div class="paso-sub">Revisamos tu negocio, tu competencia y el estado actual de tus redes.</div>
       </div>
       <div class="paso">
@@ -1032,23 +1115,43 @@
   </div>
 </section>
 
-<footer class="cta">
+<footer class="cta" id="contacto">
   <div class="wrap">
     <div>
       <h3>Cada paquete es un punto de partida, no una caja cerrada.</h3>
     </div>
     <div class="cta-buttons">
-      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20paquetes" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" data-goatcounter-click="cta-footer-whatsapp" data-goatcounter-title="Footer: WhatsApp">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Escríbenos al WhatsApp
+        Pedir mi diagnóstico gratis
       </a>
-      <a class="btn btn-secondary" href="mailto:camachonavarrc@gmail.com?subject=Quiero%20un%20paquete">
+      <a class="btn btn-secondary" href="mailto:camachonavarrc@gmail.com?subject=Quiero%20mi%20diagn%C3%B3stico%20gratis" data-goatcounter-click="cta-footer-correo" data-goatcounter-title="Footer: correo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
         Correo
       </a>
     </div>
   </div>
 </footer>
+
+<a class="btn btn-primary fab" href="https://wa.me/573013108268?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratis." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-goatcounter-click="cta-flotante-whatsapp" data-goatcounter-title="Botón flotante WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+  (function () {
+    var fab = document.querySelector('.fab');
+    if (!fab || !('IntersectionObserver' in window)) return;
+    var visible = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) visible.add(e.target); else visible.delete(e.target);
+      });
+      fab.classList.toggle('fab-hide', visible.size > 0);
+    });
+    document.querySelectorAll('.hero-cta, .diagnostico .btn, .cta').forEach(function (el) { io.observe(el); });
+  })();
+</script>
 
 <script data-goatcounter="https://ma-creative.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
